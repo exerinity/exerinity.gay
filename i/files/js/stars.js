@@ -8,11 +8,13 @@ function initialize() {
     canvas.height = window.innerHeight;
     stars.length = 0;
     for (let i = 0; i < 300; i++) {
+        const r = Math.random() * 1.5 + 0.5;
         stars.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            radius: Math.random() * 1.5 + 0.5,
-            alpha: Math.random() * 0.5 + 0.5
+            radius: r,
+            alpha: Math.random() * 0.5 + 0.5,
+            speed: 0.02 + r * 0.03
         });
     }
 }
@@ -30,6 +32,11 @@ function draw() {
         star.alpha += (Math.random() - 0.5) * 0.05;
         if (star.alpha > 1) star.alpha = 1;
         if (star.alpha < 0.2) star.alpha = 0.2;
+
+        star.x += star.speed;
+        if (star.x - star.radius > canvas.width) {
+            star.x = -star.radius;
+        }
     }
 }
 

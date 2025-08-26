@@ -114,7 +114,7 @@
     const nm = p?.displayName || p?.handle || 'Bluesky';
     const at = p?.handle ? `@${p.handle}` : '';
     const id = p?.did || DID;
-    const href = `https://bsky.app/profile/${encodeURIComponent(id)}`;
+    const href = `https://bsky.app/profile/exerinity.com`;
     return `
       <div class="bsky-profile-card">
         ${av ? `<img class="bsky-avatar" src="${av}" alt="${esc(nm)}" loading="lazy">` : ''}
@@ -130,6 +130,7 @@
     const prof = document.getElementById('bsky-profile');
     const box = document.getElementById('bsky-post');
     if (!prof || !box) return;
+    box.innerHTML = '<p class="loading">loading...</p>';
 
     try {
       const [p, f] = await Promise.all([

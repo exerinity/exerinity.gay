@@ -6,15 +6,19 @@
     status: document.getElementById('status'),
     activity: document.getElementById('activity'),
     playing: document.getElementById('playing'),
+    avatar: document.getElementById('dc-avatar'),
+    name: document.getElementById('dc-name'),
+    handle: document.getElementById('dc-handle'),
   };
 
   if (!els.status) return;
+  els.status.innerHTML = '<span class="loading">loading...</span>';
 
   const sets = (status) => {
     const map = {
-      online: { label: 'online', cls: 'online', bracket: true },
-      idle: { label: 'idle', cls: 'idle', bracket: true },
-      dnd: { label: 'dnd', cls: 'dnd', bracket: true },
+      online: { label: 'online', cls: 'online', bracket: false },
+      idle: { label: 'idle', cls: 'idle', bracket: false },
+      dnd: { label: 'do not disturb', cls: 'dnd', bracket: false },
       offline: { label: 'offline', cls: 'offline', bracket: false },
     };
     const m = map[status] || map.offline;
@@ -28,6 +32,45 @@
     el.classList.toggle('hidden', hidden);
   };
 
+  const custo = (activity) => {
+    if (!els.activity || !activity) return;
+    try {
+      els.activity.textContent = '';
+      const frag = document.createDocumentFragment();
+
+      const e = activity.emoji;
+      if (e) {
+        if (e.id) {
+          const ext = e.animated ? 'gif' : 'png';
+          const img = document.createElement('img');
+          img.src = `https://cdn.discordapp.com/emojis/${e.id}.${ext}?size=24&quality=lossless`;
+          img.alt = e.name || 'emoji';
+          img.width = 16;
+          img.height = 16;
+          img.style.verticalAlign = 'text-bottom';
+          img.style.marginRight = '4px';
+          frag.appendChild(img);
+        } else if (e.name) {
+          frag.appendChild(document.createTextNode(`${e.name} `));
+        }
+      }
+
+      const state = activity.state || '';
+      if (state) frag.appendChild(document.createTextNode(state));
+
+      els.activity.appendChild(frag);
+      seth(els.activity, false);
+    } catch (_) {
+      // no
+    }
+  };
+
+  const avatarUrl = (id, hash) => {
+    if (!id || !hash) return '';
+    const ext = hash.startsWith('a_') ? 'gif' : 'png';
+    return `https://cdn.discordapp.com/avatars/${id}/${hash}.${ext}?size=128`;
+  };
+
   const update = async () => {
     try {
       const res = await fetch(API, { cache: 'no-store' });
@@ -36,6 +79,20 @@
       const data = json.data;
 
       sets(data.discord_status);
+
+      const u = data.discord_user || {};
+      const name = (u.global_name || u.username || '').toString();
+      const handle = u.username ? `@${u.username}` : '';
+      const av = avatarUrl(u.id, u.avatar);
+
+      if (els.name) els.name.textContent = name || 'Discord';
+      if (els.handle) els.handle.textContent = handle;
+      if (els.avatar) {
+        if (av) {
+          els.avatar.src = av;
+          els.avatar.alt = name || 'Discord avatar';
+        }
+      }
 
       let lisl = '';
       if (data.spotify) {
@@ -59,10 +116,18 @@
           else lisl = `Listening on ${service}`;
         }
       }
+
+      let customAct = null;
+      if (Array.isArray(data.activities)) {
+        customAct = data.activities.find((a) => a.type === 4);
+      }
+
       if (els.activity) {
         if (lisl) {
           els.activity.textContent = lisl;
           seth(els.activity, false);
+        } else if (customAct && (customAct.state || customAct.emoji)) {
+          custo(customAct);
         } else {
           seth(els.activity, true);
         }
@@ -90,6 +155,6 @@
   };
 
   update();
-  setInterval(update, 15000);
+  setInterval(update, 10000);
 })();
 

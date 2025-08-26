@@ -59,21 +59,45 @@
     <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
-            <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;" id="exedev" title="click me!">exerinity.dev
+            <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
+                id="exedev" title="click me!">exerinity.dev
             </small>
             <h1 id="welcome" class="welcome" title="Welcomeeeeeeeeeeee">Welcome 👋</h1>
-            <p>Hey! I'm exerinity - a self-taught programmer, FLAC enthusiast, BeamNG.drive dilettante, and most importantly; an annoying creature from Australia. I mostly make random media-related stuff, in JavaScript since I was like 9.</p>
-            <p>Outside of coding, I play too many games - BeamNG.drive mostly. My favourite car in it is the Bruckell Bastion. 5.7 Luxe AWD.</p>
+            <p>Hey! I'm exerinity - a self-taught programmer, FLAC enthusiast, BeamNG.drive dilettante, and most
+                importantly; an annoying creature from Australia. I mostly make random media-related stuff, in
+                JavaScript since I was like 9.</p>
+            <p>Outside of coding, I play too many games - BeamNG.drive mostly. My favourite car in it is the Bruckell
+                Bastion. 5.7 Luxe AWD.</p>
             <p>I also listen to a ton of music, mostly EDM - Daft Punk, deadmau5, Avicii and Martin Garrix.</p>
-            <p>This site was started on August 26 2025. I did a 5 hour programming marathon to make it, while reusing a lot of my other code. Efficiencee™</p>
+            <p>This site was started on August 26 2025. I did a 5 hour programming marathon to make it, while reusing a
+                lot of my other code. Efficiencee™</p>
+            <p id="favthings">
+                My favourite... (click to expand)
+            </p>
             <hr>
             <div id="presence">
-                <p id="line">Currently <span id="status" class="offline">...</span>
-                    <i class="fa-brands fa-discord"></i>
-                </p>
-                <p id="activity" class="sub hidden"></p>
-                <p id="playing" class="sub hidden"></p>
+                <h1>Discord <i class="fa-brands fa-discord"></i></h1>
+                <div class="dc-card">
+                    <img id="dc-avatar" class="dc-avatar" alt="Discord avatar" src="/i/files/media/av.png">
+                    <div class="dc-ident">
+                        <div id="dc-name" class="dc-name">Discord</div>
+                        <div id="dc-handle" class="dc-handle"></div>
+                        <div class="dc-sub">
+                            <span id="activity" class="sub hidden"></span>
+                            <span id="playing" class="sub hidden"></span>
+                        </div>
+                    </div>
+                    <div class="dc-right">
+                        <span id="status" class="dc-status offline">offline</span>
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
+        </section>
+        <section id="bsky">
+            <h1>Bluesky <i class="fa-brands fa-bluesky"></i></h1>
+            <div id="bsky-profile"></div>
+            <div id="bsky-post"></div>
         </section>
         <section id="projects">
             <h1>Projects <i class="fa-solid fa-code"></i></h1>
@@ -106,14 +130,10 @@
                 </div>
             </div>
         </section>
-        <section id="bsky">
-            <h1>Bluesky <i class="fa-brands fa-bluesky"></i></h1>
-            <div id="bsky-profile"></div>
-            <div id="bsky-post"></div>
-        </section>
         <section id="random-song">
             <audio id="anotherone" preload="auto" src="/i/files/media/another_one.ogg"></audio>
-            <h1><a class="secrethyperlink" href="https://open.spotify.com/playlist/0ddWhrmtzPgUUMSoQvDLd0"><i class="fa-brands fa-spotify"></i> Random song</a></h1>
+            <h1><a class="secrethyperlink" href="https://open.spotify.com/playlist/0ddWhrmtzPgUUMSoQvDLd0"><i
+                        class="fa-brands fa-spotify"></i> Random song</a></h1>
             <div class="song-controls" style="margin: .5rem 0 1rem;">
                 <button id="song-shuffle" type="button">
                     <i class="fa-solid fa-shuffle"></i> Give me another one!
