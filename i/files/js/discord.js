@@ -11,8 +11,39 @@
     handle: document.getElementById('dc-handle'),
   };
 
+  const REFRESH_MS = 10000;
+  let nextrefresh = Date.now() + REFRESH_MS;
+  let basel = '<div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>';
+  let isrefresh = false;
+  let lastRendered = '';
+  let rafId = 0;
+  let refreshtime = 0;
+
+  const renderStatus = () => {
+    if (!els.status) return;
+    let display = basel;
+
+    if (isrefresh) {
+      display = `${basel} · <div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>`;
+    } else {
+      const msLeft = nextrefresh - Date.now();
+      const secs = Math.max(0, Math.ceil(msLeft / 1000));
+      display = `${basel}${secs > 0 ? ` · ${secs}` : ' · <div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>'}`;
+    }
+
+    if (display !== lastRendered) {
+      els.status.innerHTML = display;
+      lastRendered = display;
+    }
+  };
+
+  const tick = () => {
+    renderStatus();
+    rafId = requestAnimationFrame(tick);
+  };
+
   if (!els.status) return;
-  els.status.innerHTML = '<span class="loading">loading...</span>';
+  tick();
 
   const sets = (status) => {
     const map = {
@@ -24,7 +55,8 @@
     const m = map[status] || map.offline;
     els.status.classList.remove('online', 'idle', 'dnd', 'offline');
     els.status.classList.add(m.cls);
-    els.status.textContent = m.bracket ? `${m.label}` : m.label;
+    basel = m.bracket ? `${m.label}` : m.label;
+    renderStatus();
   };
 
   const seth = (el, hidden) => {
@@ -35,7 +67,7 @@
   const custo = (activity) => {
     if (!els.activity || !activity) return;
     try {
-      els.activity.textContent = '';
+      els.activity.innerHTML = '';
       const frag = document.createDocumentFragment();
 
       const e = activity.emoji;
@@ -72,6 +104,8 @@
   };
 
   const update = async () => {
+    isrefresh = true;
+    renderStatus();
     try {
       const res = await fetch(API, { cache: 'no-store' });
       if (!res.ok) throw new Error('Failed to fetch presence');
@@ -85,8 +119,8 @@
       const handle = u.username ? `@${u.username}` : '';
       const av = avatarUrl(u.id, u.avatar);
 
-      if (els.name) els.name.textContent = name || 'loading...';
-      if (els.handle) els.handle.textContent = handle;
+      if (els.name) els.name.innerHTML = name || '<div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>';
+      if (els.handle) els.handle.innerHTML = handle;
       if (els.avatar) {
         if (av) {
           els.avatar.src = av;
@@ -124,7 +158,7 @@
 
       if (els.activity) {
         if (lisl) {
-          els.activity.textContent = lisl;
+          els.activity.innerHTML = lisl;
           seth(els.activity, false);
         } else if (customAct && (customAct.state || customAct.emoji)) {
           custo(customAct);
@@ -143,7 +177,7 @@
       }
       if (els.playing) {
         if (plal) {
-          els.playing.textContent = plal;
+          els.playing.innerHTML = plal;
           seth(els.playing, false);
         } else {
           seth(els.playing, true);
@@ -151,10 +185,16 @@
       }
     } catch (err) {
       console.error(err);
+    } finally {
+      isrefresh = false;
+      nextrefresh = Date.now() + REFRESH_MS;
+      renderStatus();
+      if (refreshtime) clearTimeout(refreshtime);
+      const delay = Math.max(0, nextrefresh - Date.now());
+      refreshtime = setTimeout(update, delay);
     }
   };
 
   update();
-  setInterval(update, 10000);
 })();
 

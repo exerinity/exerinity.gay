@@ -130,7 +130,7 @@
     const prof = document.getElementById('bsky-profile');
     const box = document.getElementById('bsky-post');
     if (!prof || !box) return;
-    box.innerHTML = '<p class="loading">loading...</p>';
+    box.innerHTML = '<p class="loading"><div class="spinner"></div></p>';
 
     try {
       const [p, f] = await Promise.all([
