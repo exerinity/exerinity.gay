@@ -23,8 +23,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     text-align: center;
-    user-select: none;
-    -moz-user-select: none;
+    cursor: default;
 }
 
 #bgstars {

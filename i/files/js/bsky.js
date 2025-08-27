@@ -60,7 +60,7 @@
         hls.loadSource(pl);
         hls.attachMedia(video);
       } else {
-        video.innerHTML = `<p><i class="fa-solid fa-arrow-up-right-from-square"></i> Your browser may not support HLS playback - <a href="${pl}" target="_blank" rel="noopener noreferrer">open video on Bluesky</a>?</p>`;
+        video.innerHTML = `<p><i class="fa-solid fa-arrow-up-right-from-square"></i> your browser may not support HLS playback - <a href="${pl}" target="_blank" rel="noopener noreferrer">open video on bluesky</a>?</p>`;
       }
     }, 0);
     
@@ -82,7 +82,7 @@
       const by = rec?.author?.handle ? `@${esc(rec.author.handle)}` : '';
       const text = rec?.value?.text ? esc(rec.value.text).slice(0, 200) : '';
       const u = rec?.uri ? postUrl(rec.uri) : 'https://bsky.app';
-      return `<a class="bsky-quote" href="${u}" target="_blank" rel="noopener noreferrer">Quoted post ${by}${text ? `: ${text}` : ''}</a>`;
+      return `<a class="bsky-quote" href="${u}" target="_blank" rel="noopener noreferrer">quoted post ${by}${text ? `: ${text}` : ''}</a>`;
     }
     return '';
   }
@@ -93,7 +93,7 @@
     const rec = post.record || {};
     const raw = link(rec.text || '');
     const why = item.reason && item.reason.$type && item.reason.$type.includes('#reasonRepost') ? item.reason : null;
-    const from = why ? (post.author?.handle ? `Reposted from @${esc(post.author.handle)}` : 'Reposted') : '';
+    const from = why ? (post.author?.handle ? `reposted from @${esc(post.author.handle)}` : 'reposted') : '';
     const url = postUrl(post.uri);
 
     let ems = '';
@@ -104,7 +104,7 @@
         ${from ? `<div class="bsky-repost">${from}</div>` : ''}
         ${raw ? `<p class="bsky-text">${raw}</p>` : ''}
         ${ems}
-        <div class="bsky-footer"><a href="${url}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open</a></div>
+        <div class="bsky-footer"><a href="${url}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> open</a></div>
       </article>
     `;
   }
@@ -145,11 +145,11 @@
         box.innerHTML = post(item);
         twittermoji();
       } else {
-        box.innerHTML = '<p class="bsky-empty">Nothing!</p>';
+        box.innerHTML = '<p class="bsky-empty">nothing!</p>';
       }
     } catch (err) {
       console.error(err);
-      const msg = `<p class="bsky-error">Nothing!</p>`;
+      const msg = `<p class="bsky-error">nothing!</p>`;
       if (prof) prof.innerHTML = msg;
       if (box) box.innerHTML = '';
     }

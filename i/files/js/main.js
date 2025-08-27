@@ -34,8 +34,8 @@ function welcome() {
     let chosen = welcomes[Math.floor(Math.random() * welcomes.length)];
     let el = document.getElementById("welcome");
 
-    el.innerText = chosen.text + " 👋";
-    el.title = `This is Welcome in ${chosen.lang}!`;
+    el.innerText = chosen.text.toLocaleLowerCase() + " 👋";
+    el.title = `this is welcome in ${chosen.lang}!`;
     twittermoji();
 }
 
@@ -60,40 +60,5 @@ document.getElementById("exedev").addEventListener("click", () => {
         setTimeout(() => {
             document.body.classList.remove("shake");
         }, 500);
-    }
-});
-
-// favourite things expand
-document.getElementById("favthings").addEventListener("click", () => {
-    let el = document.getElementById("favthings-list");
-    document.getElementById("favthings").innerHTML = `My favourite... (click to ${el ? "collapse" : "expand"})`;
-    if (!el) {
-        el = document.createElement("ul");
-        el.id = "favthings-list";
-        el.innerHTML = `
-            <li>YouTuber: penguinz0</li>
-            <li>Song: Animals by Martin Garrix</li>
-            <li>Game: BeamNG.drive</li>
-            <li>Artist: deadmau5</li>
-            <li>Car: BMW E46 330i (I own it!)</li>
-            <li>Colour: Purple</li>
-            <li>Operating system: Windows 10</li>
-            <li>Programming language: JavaScript</li>
-            <li>Food: KFC Bacon Stacker burger</li>
-            <li>Drink: Monster Zero Ultra or iced coffee</li>
-            <li>Animal: Shark</li>
-            <li>Subject: Computer Science</li>
-            <li>Sport: Golf</li>
-            <li>Holiday destination: Adelaide, South Australia</li>
-            <li>Fictional character: your girlfriend</li>
-            <li>Streaming service: TIDAL</li>
-            <li>Snack: Knoppers</li>
-            
-
-        `;
-        document.getElementById("favthings").appendChild(el);
-        twittermoji();
-    } else {
-        el.classList.toggle("hidden");
     }
 });

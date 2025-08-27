@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="exerinity">
+    <title>projects / exerinity dot dev</title>
+    <link rel="stylesheet" href="/i/files/css/structure.css">
+    <link rel="stylesheet" href="/i/files/css/misc.css">
+    <link rel="stylesheet" href="/i/files/css/interactives.css">
+    <link rel="canonical" href="https://exerinity.dev">
+    <meta name="theme-color" content="#4a29c2">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- twemoji -->
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="exerinity">
+    <meta name="twitter:description" content="I like coding stuff.">
+    <meta name="twitter:image" content="/i/files/media/av.png">
+
+    <!-- og -->
+    <meta property="og:title" content="exerinity">
+    <meta property="og:description" content="I like coding stuff.">
+    <meta property="og:image" content="/i/files/media/av.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exerinity.dev">
+
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://i.exerinity.com" crossorigin>
+    <link rel="preconnect" href="https://bsky.app" crossorigin>
+    <link rel="preconnect" href="https://api.lanyard.rest" crossorigin>
+
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="/i/files/media/av.png">
+    <link rel="apple-touch-icon" href="/i/files/media/av.png">
+
+    <!-- turbolinks -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"></script>
+    <script>Turbolinks.start();</script>
+</head>
+
+<body>
+    <script src="/i/files/js/stars.js" defer></script>
+    <canvas id="bgstars"></canvas>
+    <main>
+        <section id="about">
+            <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
+                id="exedev">exerinity.dev / projects</small>
+        </section>
+        <section id="projects">
+            <h3>audion</h3>
+            <p>a local file player with metadata parsing, visualizers, timed lyrics, and a bit more. not groundbreaking; but has a lot of structure holding it up.</p>
+            <div class="nav-links">
+                <a href="https://audion.exerinity.com" target="_blank" rel="noopener noreferrer">enter</a>
+                <a href="https://github.com/exerinity/audion" target="_blank" rel="noopener noreferrer">source</a>
+            </div>
+            <img src="https://i.exerinity.com/uunwEdfgsY.gif" width="900" alt="Audion screenshot" style="max-width:100%;height:auto;">
+            <hr>
+            <h3>redsky</h3>
+            <p>a Nitter-inspired bluesky viewer that works without JavaScript, built on Cloudflare Workers.</p>
+            <div class="nav-links">
+                <a href="https://redsky.exerinity.com" target="_blank" rel="noopener noreferrer">Website</a>
+            </div>
+            <img src="https://i.exerinity.com/wgKa1l4fRz.png" width="400" alt="Redsky screenshot" style="max-width:100%;height:auto;">
+            <hr>
+            <h3>ex3</h3>
+            <p>a Swiss Army knife of tools for discord. works in servers, group chats, and DMs. has both useful and useless but fun commands.</p>
+            <div class="nav-links">
+                <a href="/invite/ex3" target="_blank" rel="noopener noreferrer">add / invite</a>
+                <a href="https://ex3.icu" target="_blank" rel="noopener noreferrer">website</a>
+            </div>
+            <img src="https://i.exerinity.com/8PIIUA86Rq.png" width="400" alt="ex3 screenshot"><br>
+            <hr>
+
+            <h3>pigeon</h3>
+            <p>a simple and fast AI chatbot that listens to a single channel and responds to all messages in it. supports remembering up to 200 messages, history exporting, and no cross-server memory.</p>
+            <div class="nav-links">
+                <a href="/invite/pigeon" target="_blank" rel="noopener noreferrer">invite</a>
+                <a href="https://pigeon.exerinity.com" target="_blank" rel="noopener noreferrer">website</a>
+            </div>
+            <img src="https://i.exerinity.com/z9bDKSMMbL.png" width="600" alt="pigeon screenshot">
+            <hr>
+        </section>
+         <section id="about">
+            <div class="nav-links">
+                <a href="https://exerinity.com"><i class="fa-solid fa-earth-americas"></i> exerinity.com</a>
+                <a href="/"><i class="fa-solid fa-house"></i> home</a>
+            </div>
+        </section>
+    </main>
+    <script>document.getElementById('exedev').addEventListener('click', () => { window.location.href = '/'; });</script>
+</body>
+
+</html>

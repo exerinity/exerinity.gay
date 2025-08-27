@@ -62,25 +62,23 @@
             <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
                 id="exedev" title="click me!">exerinity.dev
             </small>
-            <h1 id="welcome" class="welcome" title="Welcomeeeeeeeeeeee">Welcome 👋</h1>
-            <p>Hey! I'm exerinity - a self-taught programmer, FLAC enthusiast, BeamNG.drive dilettante, and most
-                importantly; an annoying creature from Australia. I mostly make random media-related stuff, in
-                JavaScript since I was like 9.</p>
-            <p>Outside of coding, I play too many games - BeamNG.drive mostly. My favourite car in it is the Bruckell
+            <h1 id="welcome" class="welcome" title="Welcomeeeeeeeeeeee"></h1>
+            <p>hey! i'm <strong>exerinity</strong> (pronounced "ecksa-rinity", or however you want) - a self-taught
+                programmer, FLAC enthusiast, BeamNG.drive dilettante, and most
+                importantly; an annoying creature from Australia. i mostly make random media-related stuff, in
+                JavaScript since i was like 9.</p>
+            <p>i play too many games - BeamNG.drive mostly. my favourite car in it is the Bruckell
                 Bastion. 5.7 Luxe AWD.</p>
-            <p>I also listen to a ton of music, mostly EDM - Daft Punk, deadmau5, Avicii and Martin Garrix.</p>
-            <p>This site was started on August 26 2025. I did a 5 hour programming marathon to make it, while reusing a
-                lot of my other code. Efficiencee™</p>
-            <p id="favthings">
-                My favourite... (click to expand)
-            </p>
+            <p>i also listen to a ton of music, mostly EDM - Daft Punk, deadmau5, Avicii and Martin Garrix.</p>
+            <p>this site was started on August 26 2025. i did a 5 hour programming marathon to make it, while reusing a
+                lot of my other code. efficiencee™</p>
             <hr>
             <div id="presence">
-                <h1>Discord <i class="fa-brands fa-discord"></i></h1>
+                <h1>discord <i class="fa-brands fa-discord"></i></h1>
                 <div class="dc-card">
                     <img id="dc-avatar" class="dc-avatar" alt="Discord avatar" src="/i/files/media/av.png">
                     <div class="dc-ident">
-                        <div id="dc-name" class="dc-name">Discord</div>
+                        <div id="dc-name" class="dc-name">loading...</div>
                         <div id="dc-handle" class="dc-handle"></div>
                         <div class="dc-sub">
                             <span id="activity" class="sub hidden"></span>
@@ -95,12 +93,12 @@
             </div>
         </section>
         <section id="bsky">
-            <h1>Bluesky <i class="fa-brands fa-bluesky"></i></h1>
+            <h1>bluesky <i class="fa-brands fa-bluesky"></i></h1>
             <div id="bsky-profile"></div>
             <div id="bsky-post"></div>
         </section>
         <section id="projects">
-            <h1>Projects <i class="fa-solid fa-code"></i></h1>
+            <h1>projects <i class="fa-solid fa-code"></i></h1>
             <ul>
                 <li title="A multifunctional bot"><a href="https://ex3.icu"><i
                             class="fa-solid fa-brands fa-discord"></i> ex3</a></li>
@@ -108,24 +106,38 @@
                             class="fa-solid fa-brands fa-discord"></i><i class="fa-solid fa-robot"></i> pigeon</a></li>
                 <li title="A feature-rich local music file player that works as a PWA"><a
                         href="https://audion.exerinity.com"><i class="fa-solid fa-tower-broadcast fa-beat"
-                            style="color: #8000ff;"></i> Audion</a></li>
+                            style="color: #8000ff;"></i> audion</a></li>
                 <li><a href="https://exerinity.com/projects">...more</a></li>
 
             </ul>
         </section>
+        <section id="social">
+            <h1>follow me <i class="fa-solid fa-share-nodes"></i></h1>
+            <div class="nav-links">
+                <a href="https://exerinity.com/twitter" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-twitter"></i> twitter</a>
+                <a href="https://exerinity.com/github" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-github"></i> github</a>
+                <a href="https://exerinity.com/bluesky" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-bluesky"></i> bluesky</a>
+                <a href="https://exerinity.com/discord" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-discord"></i> discord</a>
+                <a href="https://exerinity.com/socials" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-plus"></i> more...</a>
+            </div>
+        </section>
         <section id="clocks">
-            <h1>Time for... <i class="fa-solid fa-clock"></i></h1>
+            <h1>time for... <i class="fa-solid fa-clock"></i></h1>
             <div class="clocks">
                 <div class="clock-item" title="UTC, GMT 0">
                     <i class="fa-solid fa-globe"></i> UTC
                     <span id="clock-utc" aria-live="polite"></span>
                 </div>
                 <div class="clock-item" title="Your device">
-                    <i class="fa-solid fa-user-clock"></i> You
+                    <i class="fa-solid fa-user-clock"></i> you
                     <span id="clock-local" aria-live="polite"></span>
                 </div>
                 <div class="clock-item" title="My time, UTC+10, or AEST">
-                    <i class="fa-solid fa-crown"></i> Me
+                    <i class="fa-solid fa-crown"></i> me
                     <span id="clock-utc10" aria-live="polite"></span>
                 </div>
             </div>
@@ -133,19 +145,20 @@
         <section id="random-song">
             <audio id="anotherone" preload="auto" src="/i/files/media/another_one.ogg"></audio>
             <h1><a class="secrethyperlink" href="https://open.spotify.com/playlist/0ddWhrmtzPgUUMSoQvDLd0"><i
-                        class="fa-brands fa-spotify"></i> Random song</a></h1>
+                        class="fa-brands fa-spotify"></i> random song</a></h1>
             <div class="song-controls" style="margin: .5rem 0 1rem;">
                 <button id="song-shuffle" type="button">
-                    <i class="fa-solid fa-shuffle"></i> Give me another one!
+                    <i class="fa-solid fa-shuffle"></i> give me another one!
                 </button>
             </div>
             <div id="spotify-embed" class="spotify-embed"></div>
         </section>
         <section id="about">
-            <p>This site is in early development. I spent five hours on this non-stop - but I will progressively add
+            <p>this site is in early development. i spent five hours on this non-stop - but i will progressively add
                 more.</p>
             <div class="nav-links">
-                <a href="https://exerinity.com"><i class="fa-solid fa-house"></i> exerinity.com</a>
+                <a href="https://exerinity.com"><i class="fa-solid fa-earth-americas"></i> exerinity.com</a>
+                <a href="/projects"><i class="fa-solid fa-code"></i> projects</a>
             </div>
         </section>
     </main>

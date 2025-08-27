@@ -85,7 +85,7 @@
       const handle = u.username ? `@${u.username}` : '';
       const av = avatarUrl(u.id, u.avatar);
 
-      if (els.name) els.name.textContent = name || 'Discord';
+      if (els.name) els.name.textContent = name || 'loading...';
       if (els.handle) els.handle.textContent = handle;
       if (els.avatar) {
         if (av) {
