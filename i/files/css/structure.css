@@ -1,4 +1,4 @@
-/* import ttf inter from /files/font/inter */
+@import url("./scrollbar.css");
 @font-face {
     font-family: 'Inter';
     src: url("/i/files/font/inter/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
@@ -318,6 +318,15 @@ ul {
 @media (max-width: 480px) {
     #clocks .clock-item {
         padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    #clocks .clock-item span {
+        margin-left: 0;
+        align-self: stretch;
+        text-align: center;
     }
 }
 

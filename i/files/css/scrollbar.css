@@ -1,0 +1,73 @@
+:root {
+    --sb-size: 12px;
+    --sb-radius: 12px; /* matches site rounding */
+    --sb-track: rgba(255, 255, 255, 0.06);
+    --sb-track-border: rgba(255, 255, 255, 0.12);
+    --sb-thumb-border: #ccc;
+    --sb-accent: #b6c2ff; /* site accent */
+}
+
+html { scrollbar-gutter: stable; }
+
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+    background: transparent;
+}
+
+html:hover ::-webkit-scrollbar {
+    width: calc(var(--sb-size) + 2px);
+    height: calc(var(--sb-size) + 2px);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track);
+    border: 1px solid var(--sb-track-border);
+    border-radius: var(--sb-radius);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+                inset 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.9));
+    border-radius: 9999px;
+    border: 2px solid var(--sb-thumb-border);
+    background-clip: padding-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffff, #f3f4f6);
+    border-color: color-mix(in srgb, var(--sb-accent) 60%, #ffffff 40%);
+    box-shadow: 0 2px 12px color-mix(in srgb, var(--sb-accent) 40%, transparent),
+                0 2px 10px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, #f3f4f6, #e5e7eb);
+    border-color: color-mix(in srgb, var(--sb-accent) 75%, #ffffff 25%);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35),
+                inset 0 0 0 9999px color-mix(in srgb, var(--sb-accent) 10%, transparent);
+}
+
+::-webkit-scrollbar-button { display: none; height: 0; width: 0; }
+
+::-webkit-scrollbar-corner { background: transparent; }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --sb-track: rgba(0, 0, 0, 0.06);
+        --sb-track-border: rgba(0, 0, 0, 0.12);
+        --sb-thumb-border: #d1d5db;
+    }
+    * { scrollbar-color: #606060 rgba(0,0,0,0.08); }
+}

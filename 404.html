@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="exerinity">
-    <title>redsky / projects / exerinity dot dev</title>
+    <title>exerinity dot dev</title>
     <link rel="stylesheet" href="/i/files/css/structure.css">
     <link rel="stylesheet" href="/i/files/css/misc.css">
     <link rel="stylesheet" href="/i/files/css/interactives.css">
@@ -46,50 +46,23 @@
 
 <body>
     <script src="/i/files/js/stars.js" defer></script>
-    <script src="/i/files/js/clock.js" defer></script>
-    <script src="/i/files/js/discord.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="/i/files/js/bsky.js" defer></script>
-    <script src="/i/files/js/songs.js" defer></script>
-    <script src="/i/files/js/main.js" defer></script>
     <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
             <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
-                id="exedev">exerinity.dev / projects / redsky</small>
-            <h1>redsky</h1>
-            <p><strong>redsky</strong> is a simple viewer for Bluesky that requires no JavaScript, inspired by invidious
-                and nitter.</p>
-            <img src="https://i.exerinity.com/qWqr7N3Ysj.png" style="max-width:100%;height:auto;">
-            <img src="https://i.exerinity.com/PyaXzruSOo.png" style="max-width:100%;height:auto;">
+                id="exedev">exerinity.dev / ?</small>
         </section>
-        <section id="about">
-            <h2>features</h2>
-            <ul style="list-style: disc; margin-left: 20px;">
-                <li><i>extremely</i> lightweight, you are given no scripts at all</li>
-                <li>works great on anything that can browse the web (maybe)</li>
-                <li>good for utmost simplicity, possibly circumventing censorship, scraping, or just for fun</li>
-            </ul>
-
-            <h2>why?</h2>
-            <p>the bluesky web app will not load at all unless you havee javascript enabled. this isn't a problem for
-                most people, but if you want to use bluesky on a device that does not support javascript, or just like
-                simple things, you might like redsky.</p>
-            <div class="nav-links">
-                <a href="https://redsky.exerinity.com" target="_blank" rel="noopener">check it out!</a>
-            </div>
-        </section>
-        <hr>
+        <h1>404</h1>
+        <p>see all those stars behind us? thats probably where the page you were looking for went.</p>
         <div class="nav-links">
-            <a href="/"><i class="fa-solid fa-house"></i> home</a>
-            <a href="/projects"><i class="fa-solid fa-code"></i> back</a>
+            <a href="/"><i class="fa-solid fa-house"></i> go home</a>
+            <a id="try" href="null"><i class="fa-solid fa-earth-americas"></i> try on exerinity.com</a>
+            <a href="https://exerinity.com"><i class="fa-solid fa-globe"></i> exerinity.com</a>
         </div>
     </main>
-
     <script>
-        document.getElementById('exedev').addEventListener('click', () => {
-            window.location.href = '/projects';
-        });
+        document.getElementById('try').href = 'https://exerinity.com' + window.location.pathname + window.location.search;
+        document.getElementById('exedev').addEventListener('click', () => {window.location.href = '/';});
     </script>
 </body>
 

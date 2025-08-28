@@ -1,6 +1,6 @@
 function twittermoji() {
     twemoji.parse(document, {
-        base: 'https://raw.githubusercontent.com/twitter/twemoji/master/assets/',
+        base: 'https://twemoji.exerinity.dev/',
         size: '72x72',
         ext: '.png'
     });

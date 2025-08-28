@@ -14,7 +14,8 @@ function initialize() {
             y: Math.random() * canvas.height,
             radius: r,
             alpha: Math.random() * 0.5 + 0.5,
-            speed: 0.02 + r * 0.03
+            dx: (Math.random() - 0.5) * 0.1,
+            dy: (Math.random() - 0.5) * 0.05 
         });
     }
 }
@@ -33,9 +34,19 @@ function draw() {
         if (star.alpha > 1) star.alpha = 1;
         if (star.alpha < 0.2) star.alpha = 0.2;
 
-        star.x += star.speed;
+        star.x += star.dx;
+        star.y += star.dy;
+        
         if (star.x - star.radius > canvas.width) {
             star.x = -star.radius;
+        } else if (star.x + star.radius < 0) {
+            star.x = canvas.width + star.radius;
+        }
+        
+        if (star.y - star.radius > canvas.height) {
+            star.y = -star.radius;
+        } else if (star.y + star.radius < 0) {
+            star.y = canvas.height + star.radius;
         }
     }
 }
@@ -43,9 +54,17 @@ function draw() {
 const meteors = [];
 
 function create() {
-    const startX = Math.random() * canvas.width;
-    const startY = Math.random() * (canvas.height / 4);
-    const angle = Math.PI / 4 + (Math.random() - 0.5) * (Math.PI / 6);
+    const side = Math.random();
+    let startX, startY, angle;
+    if (side < 0.5) {
+        startX = -20;
+        startY = Math.random() * canvas.height;
+        angle = Math.PI * 3/4 + (Math.random() - 0.5) * (Math.PI / 6);
+    } else {
+        startX = canvas.width + 20;
+        startY = Math.random() * canvas.height;
+        angle = Math.PI / 4 + (Math.random() - 0.5) * (Math.PI / 6);
+    }
     const speed = Math.random() * 3 + 3;
     const length = Math.random() * 20 + 20;
     meteors.push({ x: startX, y: startY, angle, speed, length, alpha: 1 });
@@ -109,7 +128,6 @@ window.shoot = shoot;
 
 let rafId = null;
 
-// Helpers to pause/resume both animation and meteor scheduling
 function pause() {
     if (rafId !== null) {
         cancelAnimationFrame(rafId);
@@ -135,7 +153,6 @@ function loop() {
 
 loop();
 
-// Pause when tab is hidden; resume when visible
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
         pause();
@@ -144,6 +161,5 @@ document.addEventListener('visibilitychange', function () {
     }
 });
 
-// Also pause when window loses focus and resume on focus
 window.addEventListener('blur', pause);
 window.addEventListener('focus', resume);
