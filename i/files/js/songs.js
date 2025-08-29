@@ -57,7 +57,7 @@
 
     fetch(SRC, { cache: 'no-store' })
         .then(r => {
-            if (!r.ok) throw new Error(`Failed to load songs: ${r.status}`);
+            if (!r.ok) throw new Error(r.status);
             return r.json();
         })
         .then(list => {
@@ -67,6 +67,6 @@
         })
         .catch(err => {
             console.error(err);
-            box.innerHTML = '<p style="opacity:.8">Could not load songs right now.</p>';
+            box.innerHTML = '<p style="opacity:.8">nothing!</p>';
         });
 })();

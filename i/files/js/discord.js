@@ -108,7 +108,6 @@
     renderStatus();
     try {
       const res = await fetch(API, { cache: 'no-store' });
-      if (!res.ok) throw new Error('Failed to fetch presence');
       const json = await res.json();
       const data = json.data;
 
@@ -124,7 +123,6 @@
       if (els.avatar) {
         if (av) {
           els.avatar.src = av;
-          els.avatar.alt = name || 'Discord avatar';
         }
       }
 
