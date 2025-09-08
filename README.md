@@ -1,2 +1,0 @@
-# exerinity.dev
-cool

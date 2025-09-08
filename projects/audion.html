@@ -20,18 +20,13 @@
     <!-- twemoji -->
     <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 
-    <!-- twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="exerinity">
-    <meta name="twitter:description" content="A semi-advanced music player that supports any audio file your browser does.">
-    <meta name="twitter:image" content="https://i.exerinity.com/VAIkJi5JHH">
-
     <!-- og -->
     <meta property="og:title" content="exerinity">
     <meta property="og:description" content="A semi-advanced music player that supports any audio file your browser does.">
     <meta property="og:image" content="https://i.exerinity.com/VAIkJi5JHH">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://exerinity.dev/projects/audion">
+    <meta property="og:site_name" content="exerinity.dev/projects/audion">
 
     <!-- preconnect -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -55,14 +50,14 @@
         <section id="about">
             <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
                 id="exedev">exerinity.dev / projects / audion</small>
-            <h1>audion</h1>
+            <h1>Audion</h1>
             <small>status: FINISHED</small>
-            <p><abbr title="Audio on">audion</abbr> is a <abbr title="Progressive Web App">PWA</abbr> local music file
-                player. Its premise is simple: select your file... and... that's it. It has a few cool things, like
-                timed lyrics, visualizers, metadata, and a lot of clickable things. What you see is pretty simple, but
-                under the hood, it's quite advanced, considering I made it myself just for putting &lt;audio&gt; on
+            <p><abbr title="Audio on">Audion</abbr> is a <abbr title="Progressive Web App">PWA</abbr> local music file
+                player. its premise is simple: select your file... and... that's it. it has a few cool things, like
+                timed lyrics, visualizers, metadata, and a lot of clickable things. what you see is pretty simple, but
+                under the hood, it's quite advanced, considering i made it myself just for putting &lt;audio&gt; on
                 steroids.</p>
-            <img src="https://i.exerinity.com/VAIkJi5JHH" style="max-width:100%;height:auto;">
+            <img src="https://i.exerinity.com/bC4DkdPcar" style="max-width:100%;height:auto;">
         </section>
         <section id="about">
             <h2>features</h2>
@@ -76,8 +71,7 @@
             </ul>
 
             <h2>why?</h2>
-            <p>i couldn't find a player like this (nor did i really look), and i wanted to consolidate my previous
-                audio-related things into one project i can actually call an "app".</p>
+            <p>i couldn't find a player like this (nor did i really look), and i wanted to consolidate my previous audio-related things into one project i can actually call an "app".</p>
             <div class="nav-links">
                 <a href="https://audion.exerinity.com" target="_blank" rel="noopener">check it out!</a>
             </div>
@@ -85,23 +79,14 @@
         <section id="about">
             <p>now, i want to talk about some random things it has:</p>
             <ul style="list-style: disc; margin-left: 20px;">
-                <li><strong>metadata copying</strong>: you can click on the status bar, or the title/artist/album to
-                    copy the respective metadata to your clipboard. mainly, i did this so i can quickly strike up a
-                    conversation with ChatGPT about the song</li>
+                <li><strong>metadata copying</strong>: you can click on the status bar, or the title/artist/album to copy the respective metadata to your clipboard. mainly, i did this so i can quickly strike up a conversation with ChatGPT about the song</li>
                 <li><strong>draggable popups</strong>: because why not</li>
-                <li><strong>sound effects from Windows</strong>: the XP logon sound plays when you open the app, but you
-                    may never have heard it because browsers block autoplay; and also the XP error sound when an error
-                    occurs</li>
+                <li><strong>sound effects from Windows</strong>: the XP logon sound plays when you open the app, but you may never have heard it because browsers block autoplay; and also the XP error sound when an error occurs</li>
                 <li><strong>"toys"</strong>: lets you push fake errors, status pushes, message boxes</li>
-                <li><strong>an over-engineered status bar</strong>: instead of doing the good old <abbr
-                        title="pushUpdate() setTimeout(revert, 3000)">revert in 3 seconds</abbr>, the amount of status
-                    pushes are counted, and only 3 seconds after the last one will it revert. since the status bar shows
-                    scrubbing, volume, basically everything, this is necessary <a
-                        href="https://i.exerinity.com/2nFINbuQGM">or it will look very messy</a></li>
-                <li><strong>timed lyrics</strong>: if your file has matching metadata to what lrclib has, it will show
-                    timed lyrics, you can even click on a line to jump to it</li>
-                <li><strong>public domain</strong>: i released the code under the unlicense, because this is nonsense
-                </li>
+                <li><strong>an over-engineered status bar</strong>: instead of doing the good old <abbr title="pushUpdate() setTimeout(revert, 3000)">revert in 3 seconds</abbr>, the amount of status pushes are counted, and only 3 seconds after the last one will it revert. since the status bar shows scrubbing, volume, basically everything, this is necessary <a href="https://i.exerinity.com/2nFINbuQGM">or it will look very messy</a></li>
+                <li><strong>timed lyrics</strong>: if your file has matching metadata to what lrclib has, it will show timed lyrics, you can even click on a line to jump to it</li>
+                <li><strong>public domain</strong>: i released the code under the unlicense, because this is nonsense</li>
+                <li><strong>not obfuscated or minified</strong>: whatever i write, you get 1:1, but have fun navigating my vague naming conventions</li>
             </ul>
         </section>
         <hr>
