@@ -1,4 +1,22 @@
+/*
+                                                                 ___                            ___                      
+                                          .-.              .-.  (   )                          (   )                     
+  .--.    ___  ___    .--.    ___ .-.    ( __)  ___ .-.   ( __)  | |_      ___  ___          .-.| |    .--.    ___  ___  
+ /    \  (   )(   )  /    \  (   )   \   (''") (   )   \  (''") (   __)   (   )(   )        /   \ |   /    \  (   )(   ) 
+|  .-. ;  | |  | |  |  .-. ;  | ' .-. ;   | |   |  .-. .   | |   | |       | |  | |        |  .-. |  |  .-. ;  | |  | |  
+|  | | |   \ `' /   |  | | |  |  / (___)  | |   | |  | |   | |   | | ___   | |  | |        | |  | |  |  | | |  | |  | |  
+|  |/  |   / ,. \   |  |/  |  | |         | |   | |  | |   | |   | |(   )  | '  | |        | |  | |  |  |/  |  | |  | |  
+|  ' _.'  ' .  ; .  |  ' _.'  | |         | |   | |  | |   | |   | | | |   '  `-' |        | |  | |  |  ' _.'  | |  | |  
+|  .'.-.  | |  | |  |  .'.-.  | |         | |   | |  | |   | |   | ' | |    `.__. |   .-.  | '  | |  |  .'.-.  ' '  ; '  
+'  `-' /  | |  | |  '  `-' /  | |         | |   | |  | |   | |   ' `-' ;    ___ | |  (   ) ' `-'  /  '  `-' /   \ `' /   
+ `.__.'  (___)(___)  `.__.'  (___)       (___) (___)(___) (___)   `.__.    (   )' |   `-'   `.__,'    `.__.'     '_.'    
+                                                                            ; `-' '                                      
+                                                                             .__.'                                       
+
+The code here is pretty bad... good luck understanding it lol
+*/
 function twittermoji() {
+    console.log('parsing twemoji');
     twemoji.parse(document, {
         base: 'https://twemoji.exerinity.dev/',
         size: '72x72',
@@ -9,6 +27,7 @@ function twittermoji() {
 twittermoji();
 
 function welcome() {
+    console.log('welcoming you <3');
 
     let welcomes = [
     { text: "welcome to exerinity.dev", lang: "English" },
@@ -37,6 +56,7 @@ function welcome() {
     el.innerText = chosen.text.toLocaleLowerCase() + " 👋";
     el.title = `this is welcome in ${chosen.lang}!`;
     twittermoji();
+    console.log(`picked "${chosen.text}" in ${chosen.lang}`);
 }
 
 welcome();
@@ -46,6 +66,7 @@ let clickz = 0;
 let timer;
 
 document.getElementById("exedev").addEventListener("click", () => {
+    console.log('you hear a knock...');
     clickz++;
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -53,6 +74,7 @@ document.getElementById("exedev").addEventListener("click", () => {
     }, 500);
 
     if (clickz >= 3) {
+        console.log('behold!');
         clickz = 0;
         shoot(20);
 

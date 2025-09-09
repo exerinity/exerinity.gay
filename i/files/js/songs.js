@@ -1,4 +1,5 @@
 (function () {
+    console.log('songs loaded');
     const SRC = '/i/data/songs/spotify.json';
     const box = document.getElementById('spotify-embed');
     const btn = document.getElementById('song-shuffle');
@@ -20,6 +21,7 @@
     }
 
     function show(id) {
+        console.log(`picked ${id}`);
         if (!id) return;
         last = id;
         box.innerHTML = '';
@@ -46,6 +48,7 @@
     }
 
     function another() {
+        console.log('another one');
         ano.currentTime = 0;
         ano.play();
     }

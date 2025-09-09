@@ -3,6 +3,8 @@ const ctx = canvas.getContext('2d');
 
 const stars = [];
 
+console.log('stars loaded');
+
 function initialize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -120,6 +122,7 @@ function met() {
 }
 
 function shoot(count = 10) {
+    console.log('shooting stars!');
     for (let i = 0; i < count; i++) {
         create();
     }
