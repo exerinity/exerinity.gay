@@ -268,6 +268,8 @@
 		`;
 	};
 
+	let curr = null;
+
 	const ub = (bs) => {
 		const ppl = $('bsky-profile');
 		const pol = $('bsky-post');
@@ -278,9 +280,17 @@
 		try {
 			if (ppl) ppl.innerHTML = rpr(bs?.profile || {});
 			const item = bs?.feed?.feed?.[0] || null;
+
+			// Check if the current post is the same as the last rendered post
+			if (item && JSON.stringify(item) === JSON.stringify(curr)) {
+				console.log('No changes in Bluesky post, skipping render.');
+				return;
+			}
+
 			if (pol) {
 				if (item) {
 					pol.innerHTML = rep(item);
+					curr = item; // Update the last rendered post
 					try { if (typeof twittermoji === 'function') twittermoji(); } catch {}
 				} else {
 					pol.innerHTML = '<p class="bsky-empty">nothing!</p>';
