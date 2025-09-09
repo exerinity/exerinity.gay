@@ -29,7 +29,6 @@
     let refreshtime = 0;
 
     const renderit = () => {
-        console.log('rendering status...');
         if (!dizel.status) return;
         let display = basel;
         if (isload) {
