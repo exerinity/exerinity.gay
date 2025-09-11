@@ -69,12 +69,19 @@
             <div id="presence">
                 <h1>discord <i class="fa-brands fa-discord"></i></h1>
                 <div class="dc-card">
-                    <img id="dc-avatar" class="dc-avatar">
+                    <div class="dc-avatar-wrap">
+                        <img id="dc-avatar" class="dc-avatar" alt="discord avatar">
+                        <img id="dc-avatar-deco" class="dc-avatar-deco hidden" alt="avatar decoration">
+                    </div>
                     <div class="dc-ident">
                         <div id="dc-name" class="dc-name">
                             <div class="spinner"></div>
                         </div>
                         <div id="dc-handle" class="dc-handle"></div>
+                        <div id="dc-clan" class="dc-clan hidden" aria-live="polite">
+                            <img id="dc-clan-icon" class="dc-clan-icon" alt="clan badge">
+                            <span id="dc-clan-tag" class="dc-clan-tag"></span>
+                        </div>
                         <div class="dc-sub">
                             <span id="activity" class="sub hidden"></span>
                             <span id="playing" class="sub hidden"></span>

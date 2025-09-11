@@ -372,12 +372,27 @@ ul {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
+#presence .dc-avatar-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+}
+
 #presence .dc-avatar {
     width: 56px;
     height: 56px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#presence .dc-avatar-deco {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 50%;
 }
 
 #presence .dc-ident {
@@ -395,6 +410,30 @@ ul {
 #presence .dc-handle {
     color: #b6c2ff;
     font-size: 0.95rem;
+}
+
+#presence .dc-clan {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    width: max-content;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 2px 6px 2px 4px;
+}
+
+#presence .dc-clan-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+#presence .dc-clan-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 #presence .dc-sub .sub {
@@ -428,6 +467,7 @@ ul {
         padding: 10px 12px;
     }
 
+    #presence .dc-avatar-wrap { width: 48px; height: 48px; }
     #presence .dc-avatar { width: 48px; height: 48px; }
 }
 

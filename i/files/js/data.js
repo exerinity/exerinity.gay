@@ -15,9 +15,13 @@
         status: $('status'),
         activity: $('activity'),
         playing: $('playing'),
-        avatar: $('dc-avatar'),
+    avatar: $('dc-avatar'),
+    avatarDeco: $('dc-avatar-deco'),
         name: $('dc-name'),
-        handle: $('dc-handle'),
+    handle: $('dc-handle'),
+    clanBox: $('dc-clan'),
+    clanIcon: $('dc-clan-icon'),
+    clanTag: $('dc-clan-tag'),
     };
 
     const REFRESH_MS = 10000;
@@ -123,6 +127,44 @@
         if (dizel.name) dizel.name.innerHTML = name || '<div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>';
         if (dizel.handle) dizel.handle.innerHTML = handle;
         if (dizel.avatar && av) dizel.avatar.src = av;
+
+        // avatar decoration (overlay on top of avatar)
+        const deco = u.avatar_decoration_data || data.avatar_decoration_data || null;
+        const decoAsset = deco?.asset || null;
+        if (dizel.avatarDeco) {
+            if (decoAsset) {
+                const decoUrl = `https://cdn.discordapp.com/avatar-decoration-presets/${decoAsset}.png?size=4096&passthrough=true`;
+                dizel.avatarDeco.src = decoUrl;
+                sh(dizel.avatarDeco, false);
+            } else {
+                sh(dizel.avatarDeco, true);
+                dizel.avatarDeco.removeAttribute('src');
+            }
+        }
+
+        // clan tag (primary guild / badge)
+        const primaryGuild = data.primary_guild || null;
+        let clanGuildId = null;
+        let clanBadgeHash = null;
+        let clanTag = null;
+        if (primaryGuild) {
+            clanGuildId = primaryGuild.identity_guild_id || primaryGuild.guild_id || null;
+            clanBadgeHash = primaryGuild.badge || null;
+            clanTag = primaryGuild.tag || null;
+        }
+        if (dizel.clanBox) {
+            if (clanGuildId && clanBadgeHash && clanTag) {
+                const iconUrl = `https://cdn.discordapp.com/clan-badges/${clanGuildId}/${clanBadgeHash}.png?size=4096`;
+                if (dizel.clanIcon) dizel.clanIcon.src = iconUrl;
+                if (dizel.clanIcon) dizel.clanIcon.alt = `${clanTag} badge`;
+                if (dizel.clanTag) dizel.clanTag.textContent = clanTag;
+                sh(dizel.clanBox, false);
+            } else {
+                sh(dizel.clanBox, true);
+                if (dizel.clanIcon) dizel.clanIcon.removeAttribute('src');
+                if (dizel.clanTag) dizel.clanTag.textContent = '';
+            }
+        }
 
         let lisl = '';
         if (data.spotify) {
