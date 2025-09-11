@@ -10,7 +10,7 @@
   function openSettings() {
     const current = getReducedMotion();
     const html = `
-        <div style="display:flex; align-items:center; gap:.5rem; font-size:1.05rem; font-weight:600;">
+        <div style="display:flex; align-items:center; gap:.5rem; font-size:1.25rem; font-weight:600;">
           <i class="fa-solid fa-gear fa-spin" style="color: var(--accent, #4f90ff);"></i>
           <span>Settings</span>
         </div>
@@ -18,7 +18,6 @@
             <input id="rm-toggle" type="checkbox" ${current ? 'checked' : ''} />
             <span>Reduced motion</span>
         </label>
-        <div style="opacity:.8; font-size:.9rem; margin:.25rem 0 0 1.65rem; text-align:left;">Freeze the star background and simplify avatar decorations.</div>
     `;
     try { msg(html, { titlebarText: 'exerinity.dev' }); } catch {}
     setTimeout(() => {
