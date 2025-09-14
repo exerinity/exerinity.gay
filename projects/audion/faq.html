@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="exerinity">
+    <title>faq / audion / projects / exerinity dot dev</title>
+    <link rel="stylesheet" href="/i/files/css/structure.css">
+    <link rel="stylesheet" href="/i/files/css/misc.css">
+    <link rel="stylesheet" href="/i/files/css/interactives.css">
+    <link rel="canonical" href="https://exerinity.dev">
+    <meta name="theme-color" content="#4a29c2">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- twemoji -->
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <!-- og -->
+    <meta property="og:title" content="exerinity">
+    <meta property="og:description" content="Programmer, or something.">
+    <meta property="og:image" content="/i/files/media/av.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exerinity.dev">
+    <meta property="og:site_name" content="exerinity.dev">
+
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://i.exerinity.com" crossorigin>
+    <link rel="preconnect" href="https://bsky.app" crossorigin>
+    <link rel="preconnect" href="https://api.lanyard.rest" crossorigin>
+
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="/i/files/media/av.png">
+    <link rel="apple-touch-icon" href="/i/files/media/av.png">
+
+    <!-- table stylesheet -->
+    <style>
+        .table_component {
+            overflow: auto;
+            width: 100%;
+        }
+
+        .table_component table {
+            border: 1px solid #dededf;
+            height: 100%;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: left;
+        }
+
+        .table_component caption {
+            caption-side: top;
+            text-align: left;
+        }
+
+        .table_component th {
+            border: 1px solid #dededf;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px;
+        }
+
+        .table_component td {
+            border: 1px solid #dededf;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="/i/files/js/stars.js" defer></script>
+    <script src="/i/files/js/clock.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="/i/files/js/data.js" defer></script>
+    <script src="/i/files/js/songs.js" defer></script>
+    <script src="/i/files/js/main.js" defer></script>
+    <canvas id="bgstars"></canvas>
+    <main>
+        <section id="about">
+            <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
+                id="exedev">exerinity.dev / projects / audion / faq</small>
+            <h1 class="welcome">audion: faq</h1>
+            <small>(as always, nobody actually asked these, I just made them up lol)</small>
+            <h2>can you download audion?</h2>
+            <p>
+                yes - audion automatically "installs" itself as an offline PWA when you visit it. there is also an
+                experimental Electron version for Windows that you can download <a
+                    href="https://i.exerinity.com/download-audion" target="_blank" rel="noopener">here</a>. it does
+                nothing special, it's literally just an executable wrapper around the web version, only much more bulky.
+                i recommend using the web version.
+            </p>
+            <p>
+                also, here is a quick table comparing the two versions:
+            </p>
+            <div class="table_component" role="region" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>feature</th>
+                            <th>web</th>
+                            <th>electron</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>queue system</td>
+                            <td>yes</td>
+                            <td>no</td>
+                        </tr>
+                        <tr>
+                            <td>theme changer</td>
+                            <td>yes</td>
+                            <td>no</td>
+                        </tr>
+                        <tr>
+                            <td>lyrics</td>
+                            <td>yes</td>
+                            <td>yes</td>
+                        </tr>
+                        <tr>
+                            <td>customizable accent colour</td>
+                            <td>yes</td>
+                            <td>yes</td>
+                        </tr>
+                        <tr>
+                            <td>click to copy</td>
+                            <td>yes</td>
+                            <td>yes</td>
+                        </tr>
+                        <tr>
+                            <td>average memory usage</td>
+                            <td>44 MB (chrome)</td>
+                            <td>130 MB</td>
+                        </tr>
+                        <tr>
+                            <td>cross-platform</td>
+                            <td>yes (literally a webpage)</td>
+                            <td>no, windows only (for now)</td>
+                        </tr>
+                        <tr>
+                            <td>latest features</td>
+                            <td>yes</td>
+                            <td>no (EXPERIMENTAL!)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2>why isn't mobile supported?</h2>
+            <p>
+                because i hate mobile and don't care who uses it. also, the abundance of multiple screen sizes and iOS's
+                sandboxed "Files" app is just hell - not worth dealing with. further, if you're on a phone, it probably
+                already has an app capable of playing music, and if not, use <a href="https://player.exerinity.com"
+                    target="_blank" rel="noopener">this tiny media player</a> i made instead.
+            </p>
+            <h2>is audion better than this or that?</h2>
+            <p>
+                that's ultimately up to you to decide - audion isn't here to supplement or replace or compete with
+                anything, solely for casual listening.
+            </p>
+            <h2>is it open source?</h2>
+            <p>
+                yes/no. there is no public repository, however i don't obfuscate or minify any code, so what i write,
+                you get.
+            </p>
+            <h2>can i suggest a feature?</h2>
+            <p>
+                maybe. <a href="https://exerinity.com/email" target="_blank" rel="noopener">email me</a>
+            </p>
+            <h2>what is this error?</h2>
+            <p>
+                audion will usually only throw an error if the file is unsupported by your browser, or missing metadata.
+                if it's something else, <a href="https://exerinity.com/email" target="_blank" rel="noopener">email
+                    me</a>
+            </p>
+            <h2>
+                can you jump to a specific time or playback speed or volume?
+            </h2>
+            <p>
+                yes! click on the label above the scrubber and a modal will open asking for the exact value.
+            </p>
+            <h2>
+                what metadata is required?
+            </h2>
+            <p>
+                virtually none, but for best results, title, album, artist, and cover. here's what does what:
+            <ul style="list-style: disc; margin-left: 20px;">
+                <li>title, artist, album: shown in the main UI + used for lyrics searching (LRCLIB requires them AND
+                    duration)</li>
+                <li>cover: shown in the main UI and favicon</li>
+            </ul>
+            that's it. i was kinda expecting that list to say more, but it's not rocket science.
+            </p>
+            <h2>
+                what doesn't work?
+            </h2>
+            <p>
+                i have tested (in chrome 140) <abbr title="Musepack">MPC</abbr>, <abbr
+                    title="Audio Interchange File Format">AIFF</abbr> - these formats don't even play.<br>i have tested
+                <abbr title="Opus... is Opus. no abbreviations.">Opus</abbr>, <abbr
+                    title="Waveform Audio File Format">WAV</abbr>, <abbr
+                    title="Ogg container (typically with Vorbis or Opus audio)">OGG</abbr> - these do not load
+                metadata.<br><strong><abbr title="Free Lossless Audio Codec">FLAC</abbr>, and <abbr
+                        title="MPEG-1/2 Audio Layer III">MP3</abbr> work the best (at least in my testing) for both
+                    metadata and playback.</strong>
+            </p>
+            <h2>
+                what can you click and what does it do?
+            </h2>
+            <p>
+                almost everything you see, you can click. here is a list of what does what:
+            <ul style="list-style: disc; margin-left: 20px;">
+                <li>album cover: opens a larger version in a modal, and clicking the larger version opens the raw image
+                    in a new tab</li>
+                <li>title, artist, album: copies the respective metadata to your clipboard</li>
+                <li>status bar: copies "Title by Artist" to your clipboard</li>
+                <li>scrubber labels: opens a modal to enter a specific value (speed, time, volume)</li>
+                <li>that circle button: restarts the track</li>
+                <li>the "toys" button: opens a modal allowing you to push fake errors, status messages, and message
+                    boxes</li>
+                <li>the "lyrics" button: opens a modal where you can enter your own LRC lyrics</li>
+                <li>the "theme" button: self explanatory</li>
+                <li>the "accent" button: opens the colour picker to change the accent colour (lyrics highlight,
+                    visualizer, other tiny things)</li>
+                <li>a line in the lyrics modal: jumps to that line</li>
+                <li>the visualizer canvas: nothing :(</li>
+            </ul>
+            you can also scroll over sliders to, well, slide. and also, pressing numeric keys jumps to the percentage of the song played through (e.g. pressing 4 jumps to 40% done).
+            </p>
+            <h2>
+                why does it use so much memory?
+            </h2>
+            <p>
+                for what it is and does, i dont think it uses that much. as i said above, it uses about 44 MB on average, playing a FLAC, with lyrics and everything going. if audion is using more than 150 mb, something is wrong, and you should probably refresh the page or clear your cache and local storage for audion - a hard reset.
+            </p>
+            <h2>
+                is audion free to use?
+            </h2>
+            <p>
+                yes - audion is actually a public domain project, but the third-party content (JSMediaTags and Font Awesome) are not mine, so obviously not the same license. only my code is public domain.
+            </p>
+            <h2>
+                does audion sound better than normally playing audio in a browser?
+            </h2>
+            <p>
+                no, audion just adds stuff to the same &lt;audio&gt; element your browser uses anyway, and is not designed for audiophile use. i, like probably another million, recommend <a href="https://foobar2000.org" target="_blank" rel="noopener">foobar2000</a>.
+            </p>
+        </section>
+        <section id="about">
+            <div class="nav-links">
+                <a href="/"><i class="fa-solid fa-house"></i> home</a>
+                <a href="/projects/audion"><i class="fa-solid fa-code"></i> back</a>
+                <a href="/projects"><i class="fa-solid fa-code"></i> projects</a>
+        </section>
+    </main>
+    <script>
+        document.getElementById('exedev').addEventListener('click', () => {
+            window.location.href = '/projects/audion';
+        });
+    </script>
+</body>
+
+</html>
