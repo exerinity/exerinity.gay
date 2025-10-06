@@ -6,6 +6,21 @@
     try { localStorage.setItem('reducedMotion', val ? 'true' : 'false'); } catch {}
     if (window.setReducedMotion) window.setReducedMotion(val);
   }
+  function setReducedMotion(val) {
+    try {
+      if (val) document.documentElement.setAttribute('data-reduced-motion', 'true'); else document.documentElement.removeAttribute('data-reduced-motion');
+
+      document.querySelectorAll('.site-brand').forEach(el => {
+        if (val) {
+          el.style.setProperty('animation', 'none', 'important');
+        } else {
+          el.style.removeProperty('animation');
+          el.style.animation = '';
+        }
+      });
+    } catch {}
+  }
+  window.setReducedMotion = setReducedMotion;
 
   function openSettings() {
     const current = getReducedMotion();
