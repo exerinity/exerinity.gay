@@ -1,0 +1,38 @@
+.wanderingCubes__46696 {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.wanderingCubes__46696 .item__46696 {
+    animation: spinner-wandering-cubes__46696 1.8s ease-in-out infinite;
+    background-color: hsl(231.298, 90.345%, 71.569%);
+    height: 10px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 10px;
+}
+
+.wanderingCubes__46696 .item__46696:nth-child(2) {
+    animation-delay: -0.9s;
+}
+
+@keyframes spinner-wandering-cubes__46696 {
+    25% {
+        transform: translateX(22px) rotate(-90deg) scale(.5);
+    }
+
+    50% {
+        transform: translateX(22px) translateY(22px) rotate(-180deg);
+    }
+
+    75% {
+        transform: translateX(0) translateY(22px) rotate(-270deg) scale(.5);
+    }
+
+    100% {
+        transform: rotate(-1turn);
+    }
+}
