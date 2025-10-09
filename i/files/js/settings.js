@@ -6,33 +6,13 @@
     try { localStorage.setItem('reducedMotion', val ? 'true' : 'false'); } catch {}
     if (window.setReducedMotion) window.setReducedMotion(val);
   }
-  function setReducedMotion(val) {
-    try {
-      if (val) document.documentElement.setAttribute('data-reduced-motion', 'true'); else document.documentElement.removeAttribute('data-reduced-motion');
-
-      document.querySelectorAll('.site-brand').forEach(el => {
-        if (val) {
-          el.style.setProperty('animation', 'none', 'important');
-        } else {
-          el.style.removeProperty('animation');
-          el.style.animation = '';
-        }
-      });
-    } catch {}
-  }
-  window.setReducedMotion = setReducedMotion;
 
   function openSettings() {
     const current = getReducedMotion();
     const html = `
-        <div style="display:flex; align-items:center; gap:.5rem; font-size:1.25rem; font-weight:600;">
-          <i class="fa-solid fa-gear fa-spin" style="color: var(--accent, #4f90ff);"></i>
-          <span>Settings</span>
-        </div>
         <label style="display:flex; align-items:center; gap:.5rem; cursor:pointer;">
             <input id="rm-toggle" type="checkbox" ${current ? 'checked' : ''} />
-            <p>Reduced motion</p><br>
-            <span><small>Stops the background stars and avatar decorations on the Discord section</small></span>
+            <span>Stop stars</span>
         </label>
     `;
     try { msg(html, { titlebarText: 'exerinity.dev' }); } catch {}
