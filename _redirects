@@ -14,3 +14,6 @@
 /rs /projects/redsky
 /api https://api.exerinity.com
 /i/twemoji /twemoji
+/audion /projects/voxity
+/projects/audion /projects/voxity
+/projects/voxity/* /projects/voxity/:splat
