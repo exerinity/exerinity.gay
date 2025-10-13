@@ -1,8 +1,6 @@
 const canvas = document.getElementById('bgstars');
 const ctx = canvas.getContext('2d');
 
-console.log('stars loaded, canvas:', canvas, 'ctx:', ctx);
-
 const stars = [];
 
 function initialize() {
@@ -70,7 +68,6 @@ function create() {
     const speed = Math.random() * 2 + 1;
     const length = Math.random() * 40 + 40;
     meteors.push({ x: startX, y: startY, angle, speed, length, alpha: 1 });
-    console.log('meteor created at', startX, startY, 'angle', angle * 180 / Math.PI);
 }
 
 let inter = null;
@@ -125,7 +122,6 @@ function met() {
 }
 
 function shoot(count = 10) {
-    console.log('shooting stars!');
     for (let i = 0; i < count; i++) {
         create();
     }
@@ -155,7 +151,6 @@ function loop() {
     draw();
     met();
     rafId = requestAnimationFrame(loop);
-    if (Math.random() < 0.01) console.log('loop running, meteors:', meteors.length);
 }
 
 loop();

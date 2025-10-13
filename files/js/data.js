@@ -1,5 +1,4 @@
 (() => {
-    console.log('ready to fetch data...');
     const API = 'https://bagel.exerinity.dev/getdata';
 
     const $ = (id) => document.getElementById(id);
@@ -69,7 +68,6 @@
     if (dizel.status) tick();
 
     const diz = (status) => {
-        console.log('updating status display...');
         if (!dizel.status) return;
         const map = {
             online: { label: 'online', cls: 'online' },
@@ -85,12 +83,10 @@
     };
 
     const sh = (el, hidden) => {
-        console.log('toggling visibility...');
         if (el) el.classList.toggle('hidden', hidden);
     };
 
     const cusa = (activity) => {
-        console.log('updating custom status...');
         if (!dizel.activity || !activity) return;
         try {
             dizel.activity.innerHTML = '';
@@ -119,15 +115,12 @@
     };
 
     const avu = (id, hash) => {
-        console.log('getting avatar url...');
         if (!id || !hash) return '';
         const ext = hash.startsWith('a_') ? 'gif' : 'png';
-        console.log(`avatar id: ${id}, hash: ${hash}, ext: ${ext}`);
         return `https://cdn.discordapp.com/avatars/${id}/${hash}.${ext}?size=128`;
     };
 
     const uds = (dc) => {
-        console.log('updating discord presence...');
         if (!dc) return;
         const data = dc.data || {};
 
@@ -197,7 +190,6 @@
     };
 
     const pu = (uri) => {
-        console.log('processing bluesky uri...');
         try {
             const parts = uri.split('/');
             const key = parts[parts.length - 1];
@@ -207,7 +199,6 @@
     };
 
     const ri = (em) => {
-        console.log('rendering images...');
         const xs = em?.images || [];
         if (!xs.length) return '';
         return `<div class="bsky-images">${xs.map(x => {
@@ -219,7 +210,6 @@
     };
 
     const rv = (em) => {
-        console.log('rendering video...');
         if (!em) return '';
         const pl = em.playlist;
         const th = em.thumbnail;
@@ -246,7 +236,6 @@
     };
 
     const ree = (em) => {
-        console.log('rendering embed...');
         if (!em) return '';
         const t = em.$type || '';
         if (t.endsWith('embed.images#view')) return ri(em);
@@ -265,7 +254,6 @@
     };
 
     const rep = (item) => {
-        console.log('building post html...');
         const post = item?.post;
         if (!post) return '<p class="bsky-error">Nothing!</p>';
         const rec = post.record || {};
@@ -288,7 +276,6 @@
     };
 
     const rpr = (p) => {
-        console.log('rendering profile...');
         const av = p?.avatar || '';
         const nm = p?.displayName || p?.handle || 'Bluesky';
         const at = p?.handle ? `@${p.handle}` : '';
@@ -316,7 +303,6 @@
             const item = bs?.feed?.feed?.[0] || null;
 
             if (item && curr && item.post && curr.post && item.post.uri === curr.post.uri) {
-                console.log('no new post...');
                 return;
             }
 
@@ -325,7 +311,6 @@
             if (pol) {
                 if (item) {
                     pol.innerHTML = rep(item);
-                    console.log('rendering post');
                     curr = item;
                     try { if (typeof twittermoji === 'function') twittermoji(); } catch { }
                 } else {
@@ -340,7 +325,6 @@
     };
 
     const load = async () => {
-        console.log('loading data...');
         isload = true;
         renderit();
         try {
@@ -363,7 +347,6 @@
     };
 
     const start = () => {
-        console.log('starting application...');
         const hds = dizel.status || dizel.activity || dizel.playing || dizel.avatar || dizel.name || dizel.handle;
         const hbs = $('bsky-profile') || $('bsky-post');
         if (!hds && !hbs) return;

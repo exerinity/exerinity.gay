@@ -18,3 +18,4 @@
 /projects/audion /projects/voxity
 /projects/audion/* /projects/voxity/:splat
 /i/* /:splat
+/lastfm https://www.last.fm/user/exerinity

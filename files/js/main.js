@@ -25,7 +25,6 @@ The code here is pretty bad... good luck understanding it lol
 })();
 
 function twittermoji() {
-    console.log('parsing twemoji');
     twemoji.parse(document, {
         base: 'https://twemoji.exerinity.dev/',
         size: '72x72',
@@ -35,44 +34,10 @@ function twittermoji() {
 
 twittermoji();
 
-function welcome() {
-    console.log('choosing welcome message');
-    let welcomes = [
-    { text: "welcome to exerinity.dev", lang: "English" },
-    { text: "willkommen auf exerinity.dev", lang: "German" },
-    { text: "bienvenue sur exerinity.dev", lang: "French" },
-    { text: "ciao! benvenuto su exerinity.dev", lang: "Italian" },
-    { text: "欢迎来到 exerinity.dev", lang: "Chinese (Simplified)" },
-    { text: "ようこそ、exerinity.dev へ", lang: "Japanese" },
-    { text: "exerinity.dev 에 오신 것을 환영합니다", lang: "Korean" },
-    { text: "bienvenido a exerinity.dev", lang: "Spanish" },
-    { text: "välkommen till exerinity.dev", lang: "Swedish" },
-    { text: "g'day! welcome to exerinity.dev", lang: "Aussie" }, // im australian but never say 'gday' haha
-    { text: "bem-vindo ao exerinity.dev", lang: "Portuguese" },
-    { text: "добро пожаловать на exerinity.dev", lang: "Russian" },
-    { text: "selamat datang di exerinity.dev", lang: "Indonesian" },
-    { text: "welkom bij exerinity.dev", lang: "Afrikaans" },
-    { text: "καλώς ήρθατε στο exerinity.dev", lang: "Greek" }
-];
-
-
-    let chosen = welcomes[Math.floor(Math.random() * welcomes.length)];
-    let el = document.getElementById("welcome");
-
-    el.innerText = chosen.text.toLocaleLowerCase() + " 👋";
-    el.title = `this is welcome in ${chosen.lang}!`;
-    twittermoji();
-    console.log(`picked "${chosen.text}" in ${chosen.lang}`);
-}
-
-welcome();
-document.getElementById("welcome").addEventListener("click", welcome);
-
 let clickz = 0;
 let timer;
 
 document.getElementById("exedev").addEventListener("click", () => {
-    console.log('you hear a knock...');
     clickz++;
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -80,7 +45,6 @@ document.getElementById("exedev").addEventListener("click", () => {
     }, 500);
 
     if (clickz >= 3) {
-        console.log('behold!');
         clickz = 0;
         shoot(20);
 
