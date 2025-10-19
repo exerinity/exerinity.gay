@@ -61,14 +61,26 @@
         <section id="about">
             <h2>features</h2>
             <ul style="list-style: disc; margin-left: 20px;">
-                <li>Lightweight, has no bulky frameworks like React/Vue/Angular</li>
-                <li>Local file playback (no uploads)</li>
-                <li>Supports whatever your browser does</li>
-                <li>Precise controls: sliders, or dialogues for 100% precision</li>
-                <li>Keyboard hotkeys</li>
-                <li>Simple by design</li>
-                <li>A queue system</li>
+                <li>Lightweight by design: no frameworks, no build tools, no bloat</li>
+                <li>Pure HTML, CSS, and JavaScript</li>
+                <li>Local file playback: nothing uploaded, nothing tracked, everything stays yours</li>
+                <li>Supports any format your browser can decode: from MP3s to FLACs</li>
+                <li>Metadata parsing: reads tags, artwork, and album info</li>
+                <li>Timed lyrics support via online lookup or manual insertion, plus, click on a line to jump to it</li>
+                <li>Real-time visualizers</li>
+                <li>Queue system with shuffle</li>
+                <li>Lots of keyboard hotkeys</li>
+                <li>Fine-tuned controls: sliders and numeric dialogs for 100% precision</li>
+                <li>Offline-ready PWA: installable, with smart caching and instant startup</li>
+                <li>Integrates with the Media Session API: supports hardware and OS-level media keys</li>
+                <li>Dynamic tab titles that scroll track info elegantly without clutter</li>
+                <li>Varied themes</li>
+                <li>Open source, public domain (in honor of Terry A. Davis)</li>
+                <li>Built for perfectionists; simple on the surface, absurdly precise underneath</li>
+                <li style="list-style: none;">and more!</li>
             </ul>
+
+
 
             <h2>why?</h2>
             <p>I couldn't find a player like this (nor did I really look), and I wanted to consolidate my previous
@@ -77,33 +89,11 @@
                 <a href="https://voxity.exerinity.com" target="_blank" rel="noopener">check it out!</a>
             </div>
             <div class="nav-links">
-                <a style="cursor: pointer;" onclick="msg(`<iframe src='https://i.exerinity.com/voxrelnote.html' style='width:100%; height:400px; border:none; border-radius:8px;'></iframe>`); return false;">release notes</a>
+                <a style="cursor: pointer;" onclick="voxrel()">release
+                    notes</a>
                 <a href="/projects/voxity/faq" target="_blank" rel="noopener">faq</a>
                 <a href="/projects/voxity/screenshots" target="_blank" rel="noopener">more screenshots</a>
             </div>
-        </section>
-        <section id="about">
-            <p>Now, I want to talk about some random things it has:</p>
-            <ul style="list-style: disc; margin-left: 20px;">
-                <li><strong>metadata copying</strong>: you can click on the status bar, or the title/artist/album to
-                    copy the respective metadata to your clipboard</li>
-                <li><strong>draggable popups</strong>: because why not</li>
-                <li><strong>sound effects from Windows</strong>: the Vista/7 logon sound plays when you open the app,
-                    but you may never have heard it because browsers block autoplay; and also the 7 error sound when an
-                    error occurs</li>
-                <li><strong>"toys"</strong>: lets you push fake errors, status pushes, message boxes</li>
-                <li><strong>an over-engineered status bar</strong>: instead of doing the good old <abbr
-                        title="pushUpdate() setTimeout(revert, 3000)">revert in 3 seconds</abbr>, the amount of status
-                    pushes are counted, and only 3 seconds after the last one will it revert. since the status bar shows
-                    scrubbing, volume, basically everything, this is necessary <a
-                        href="https://i.exerinity.com/2nFINbuQGM">or it will look very messy</a></li>
-                <li><strong>timed lyrics</strong>: if your file has matching metadata to what lrclib has, it will show
-                    timed lyrics, you can even click on a line to jump to it</li>
-                <li><strong>public domain</strong>: I released the code under the unlicense, because this is nonsense
-                </li>
-                <li><strong>not obfuscated or minified</strong>: whatever I write, you get 1:1, but have fun navigating
-                    my vague naming conventions</li>
-            </ul>
         </section>
         <hr>
         <div class="nav-links">
@@ -116,6 +106,10 @@
         document.getElementById('exedev').addEventListener('click', () => {
             window.location.href = '/projects';
         });
+
+        function voxrel() {
+            msg(`<iframe src='https://i.exerinity.com/voxrelnote.html' style='width:100%; height:400px; border:none; border-radius:8px;'></iframe>`); return false;
+        }
     </script>
 </body>
 
