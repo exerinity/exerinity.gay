@@ -23,7 +23,7 @@
     <!-- og -->
     <meta property="og:title" content="exerinity">
     <meta property="og:description" content="Programmer, or something.">
-    <meta property="og:image" content="/files/media/av.png">
+    <meta property="og:image" content="https://vienna.exerinity.dev/av.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://exerinity.dev">
     <meta property="og:site_name" content="exerinity.dev">
@@ -31,12 +31,10 @@
     <!-- preconnect -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://i.exerinity.com" crossorigin>
-    <link rel="preconnect" href="https://bsky.app" crossorigin>
-    <link rel="preconnect" href="https://api.lanyard.rest" crossorigin>
 
     <!-- icons -->
-    <link rel="icon" type="image/png" href="/files/media/av.png">
-    <link rel="apple-touch-icon" href="/files/media/av.png">
+    <link rel="icon" type="image/png" href="https://vienna.exerinity.dev/av.png">
+    <link rel="apple-touch-icon" href="https://vienna.exerinity.dev/av.png">
 
     <!-- table stylesheet -->
     <style>
@@ -85,10 +83,18 @@
             <small class="site-brand" style="font-size: 0.75rem; opacity: 0.8; user-select: none; cursor: pointer;"
                 id="exedev">exerinity.dev / projects / voxity / faq</small>
             <h1 class="welcome">voxity: faq</h1>
-            <small>(as always, nobody actually asked these, I just made them up lol)</small>
+            <h2>Where do lyrics come from?</h2>
+            <p>
+                Lyrics are fetched from <a href="https://lrclib.net" target="_blank" rel="noopener">LRCLIB</a>, a free lyrics
+                database. If no lyrics are found there, none are shown. You can also manually enter lyrics by clicking the "Paste lyrics" button, or drag-and-drop a .lrc, .srt, or .vtt file to the dropzone.
+            </p>
+            <h2>Can I donate?</h2>
+            <p>
+                If you are considering donating to me, don't, <a href="https://github.com/tranxuanthang/lrclib?tab=readme-ov-file#donation" target="_blank" rel="noopener">instead donate to LRCLIB</a>. I can't imagine the amount of requests they handle daily, <a href="https://lrclib.net/docs" target="_blank">especially considering the extremely permissive API</a>.
+            </p>
             <h2>Can you download voxity?</h2>
             <p>
-                Yes - Audion automatically "installs" itself as an offline PWA when you visit it. There is also an
+                Yes - Voxity automatically "installs" itself as an offline PWA when you visit it. There is also an outdated
                 experimental Electron version for Windows that you can download <a
                     href="https://i.exerinity.com/download-audion" target="_blank" rel="noopener">here</a>. It does
                 nothing special, it's literally just an executable wrapper around the web version, only much more bulky.
@@ -157,13 +163,13 @@
                 already has an app capable of playing music, and if not, use <a href="https://player.exerinity.com"
                     target="_blank" rel="noopener">this tiny media player</a> I made instead.
             </p>
-            <h2>Is Audion better than this or that?</h2>
+            <h2>Is Voxity better than this or that?</h2>
             <p>
                 No. Defining "better" is subjective, and regardless of which subject you pick, it's still a no.
             </p>
             <h2>Are you here to compete with Spotify or TIDAL or VLC or foobar or some other music player?</h2>
             <p>
-                Nah. The provided examples per se are made for the masses or at least a better purpose, Audion is not. But, feel free to compare.
+                Nah. The provided examples per se are made for the masses or at least a better purpose, Voxity is not. But, feel free to compare.
             </p>
             <h2>Is it open source?</h2>
             <p>
@@ -177,7 +183,7 @@
             </p>
             <h2>What is this error?</h2>
             <p>
-                Audion will usually only throw an error if the file is unsupported by your browser, or missing metadata.
+                Voxity will usually only throw an error if the file is unsupported by your browser, or missing metadata.
                 If it's something else, <a href="https://exerinity.com/email" target="_blank" rel="noopener">email
                     me</a>.
             </p>
@@ -216,7 +222,7 @@
                 What browser works best?
             </h2>
             <p>
-                Chrome. Any V8 derivative would probably work just as well, but there's less stuff in the way, at least from my testing. For example, <a href="https://i.exerinity.com/jbWM55QUHC.png">Opera's little file picker</a>, or Edge's... existence. Firefox works great too, but Chrome feels quicker with Audion.<br><br>
+                Chrome. Any V8 derivative would probably work just as well, but there's less stuff in the way, at least from my testing. For example, <a href="https://i.exerinity.com/jbWM55QUHC.png">Opera's little file picker</a>, or Edge's... existence. Firefox works great too, but Chrome feels quicker with Voxity.<br><br>
                 In other words, OG Chrome works best because it has the best integration with PWAs and OS-level APIs, and no bloat/weird side-functions.
             </p>
             <h2>
@@ -248,22 +254,22 @@
                 I didn't fine-tune Voxity to use minimal memory. I made it for <i>me</i>, and my system has lots of RAM. But, unless you have an entire fucking decade of music queued, you shouldn't use <i>that</i> much.
             </p>
             <h2>
-                Is Audion free to use?
+                Is Voxity free to use?
             </h2>
             <p>
-                Yes, both monetarily and permissively. Audion doesn't cost money to use and also in the public domain.
+                Yes, both monetarily and permissively. Voxity doesn't cost money to use and also in the public domain.
             </p>
             <h2>
-                Does Audion sound better than normally playing audio in a browser?
+                Does Voxity sound better than normally playing audio in a browser?
             </h2>
             <p>
-                No. Audion isn't designed for audiophile use, it's for casual listening.
+                No. Voxity isn't designed for audiophile use, it's for casual listening.
             </p>
             <h2>
                 So, it doesn't work on mobile, play better, or have every feature... what <i>is</i> this for?
             </h2>
             <p>
-                My own usage. I have a planet of locally stored music, and made Audion for myself... I'm just publicly sharing it.
+                My own usage. I have a planet of locally stored music, and made Voxity for myself... I'm just publicly sharing it.
             </p>
             <h2>
                 Why did you make this?
