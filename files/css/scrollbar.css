@@ -1,10 +1,10 @@
 :root {
     --sb-size: 12px;
-    --sb-radius: 12px; /* matches site rounding */
+    --sb-radius: 12px;
     --sb-track: rgba(255, 255, 255, 0.06);
     --sb-track-border: rgba(255, 255, 255, 0.12);
     --sb-thumb-border: #ccc;
-    --sb-accent: #b6c2ff; /* site accent */
+    --sb-accent: #b6c2ff;
 }
 
 html { scrollbar-gutter: stable; }
