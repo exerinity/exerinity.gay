@@ -1,5 +1,5 @@
 (() => {
-    const API = 'https://bagel.exerinity.dev/getdata';
+    const API = 'https://bagel.exerinity.dev/getdata?only=discord';
 
     const $ = (id) => document.getElementById(id);
     const esc = (s = '') => s
