@@ -189,141 +189,6 @@
         }
     };
 
-    const pu = (uri) => {
-        try {
-            const parts = uri.split('/');
-            const key = parts[parts.length - 1];
-            const id = uri.split('/')[2].replace('at://', '');
-            return `https://bsky.app/profile/${id}/post/${key}`;
-        } catch { return 'https://bsky.app'; }
-    };
-
-    const ri = (em) => {
-        const xs = em?.images || [];
-        if (!xs.length) return '';
-        return `<div class="bsky-images">${xs.map(x => {
-            const f = x.fullsize || x.thumb;
-            const t = x.thumb || x.fullsize;
-            const a = esc(x.alt || '');
-            return `<a href="${f}" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="${t}" alt="${a}"></a>`;
-        }).join('')}</div>`;
-    };
-
-    const rv = (em) => {
-        if (!em) return '';
-        const pl = em.playlist;
-        const th = em.thumbnail;
-        if (!pl) return '';
-        const vid = `video-${Math.random().toString(36).slice(2, 11)}`;
-
-        setTimeout(() => {
-            const video = document.getElementById(vid);
-            if (!video) return;
-            if (video.canPlayType && video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = pl;
-            } else if (window.Hls && window.Hls.isSupported && window.Hls.isSupported()) {
-                const hls = new window.Hls();
-                hls.loadSource(pl);
-                hls.attachMedia(video);
-            } else {
-                video.innerHTML = `<p><i class="fa-solid fa-arrow-up-right-from-square"></i> your browser may not support HLS playback - <a href="${pl}" target="_blank" rel="noopener noreferrer">open video on bluesky</a>?</p>`;
-            }
-        }, 0);
-
-        return `<div class="bsky-video">
-			<video id="${vid}" controls preload="metadata" ${th ? `poster="${th}"` : ''}></video>
-		</div>`;
-    };
-
-    const ree = (em) => {
-        if (!em) return '';
-        const t = em.$type || '';
-        if (t.endsWith('embed.images#view')) return ri(em);
-        if (t.endsWith('embed.video#view')) return rv(em);
-        if (t.endsWith('embed.recordWithMedia#view')) {
-            return ree(em.media) || ree(em.record);
-        }
-        if (t.endsWith('embed.record#view')) {
-            const rec = em.record;
-            const by = rec?.author?.handle ? `@${esc(rec.author.handle)}` : '';
-            const text = rec?.value?.text ? esc(rec.value.text).slice(0, 200) : '';
-            const u = rec?.uri ? pu(rec.uri) : 'https://bsky.app';
-            return `<a class="bsky-quote" href="${u}" target="_blank" rel="noopener noreferrer">quoted post ${by}${text ? `: ${text}` : ''}</a>`;
-        }
-        return '';
-    };
-
-    const rep = (item) => {
-        const post = item?.post;
-        if (!post) return '<p class="bsky-error">Nothing!</p>';
-        const rec = post.record || {};
-        const raw = linkify(rec.text || '');
-        const why = item.reason && item.reason.$type && item.reason.$type.includes('#reasonRepost') ? item.reason : null;
-        const from = why ? (post.author?.handle ? `reposted from @${esc(post.author.handle)}` : 'reposted') : '';
-        const url = pu(post.uri);
-
-        let ems = '';
-        if (post.embed) ems = ree(post.embed);
-
-        return `
-			<article class="bsky-item">
-				${from ? `<div class="bsky-repost">${from}</div>` : ''}
-				${raw ? `<p class="bsky-text">${raw}</p>` : ''}
-				${ems}
-				<div class="bsky-footer"><a href="${url}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> open</a></div>
-			</article>
-		`;
-    };
-
-    const rpr = (p) => {
-        const av = p?.avatar || '';
-        const nm = p?.displayName || p?.handle || 'Bluesky';
-        const at = p?.handle ? `@${p.handle}` : '';
-        const href = p?.handle ? `https://bsky.app/profile/${p.handle}` : 'https://bsky.app';
-        return `
-			<div class="bsky-profile-card">
-				${av ? `<img class="bsky-avatar" src="${av}" alt="${esc(nm)}" loading="lazy">` : ''}
-				<div class="bsky-ident">
-					<div class="bsky-name">${esc(nm)}</div>
-					${at ? `<div class="bsky-handle"><a href="${href}" target="_blank" rel="noopener noreferrer">${esc(at)}</a></div>` : ''}
-				</div>
-			</div>
-		`;
-    };
-
-    let curr = null;
-
-    const ub = (bs) => {
-        const ppl = $('bsky-profile');
-        const pol = $('bsky-post');
-        if (!ppl && !pol) return;
-
-        try {
-            if (ppl) ppl.innerHTML = rpr(bs?.profile || {});
-            const item = bs?.feed?.feed?.[0] || null;
-
-            if (item && curr && item.post && curr.post && item.post.uri === curr.post.uri) {
-                return;
-            }
-
-            if (pol) pol.innerHTML = '<p class="loading"><div class="spinner"></div></p>';
-
-            if (pol) {
-                if (item) {
-                    pol.innerHTML = rep(item);
-                    curr = item;
-                    try { if (typeof twittermoji === 'function') twittermoji(); } catch { }
-                } else {
-                    pol.innerHTML = '<p class="bsky-empty">nothing!</p>';
-                }
-            }
-        } catch (e) {
-            console.error(e);
-            if (ppl) ppl.innerHTML = '<p class="bsky-error">nothing!</p>';
-            if (pol) pol.innerHTML = '';
-        }
-    };
-
     const load = async () => {
         isload = true;
         renderit();
@@ -333,7 +198,6 @@
             const json = await res.json();
 
             if (json.discord) uds(json.discord);
-            if (json.bluesky) ub(json.bluesky);
         } catch (err) {
             console.error(err);
         } finally {
@@ -348,8 +212,7 @@
 
     const start = () => {
         const hds = dizel.status || dizel.activity || dizel.playing || dizel.avatar || dizel.name || dizel.handle;
-        const hbs = $('bsky-profile') || $('bsky-post');
-        if (!hds && !hbs) return;
+        if (!hds) return;
         load();
         requestAnimationFrame(tuneAvatarOverlay);
         window.addEventListener('resize', () => requestAnimationFrame(tuneAvatarOverlay));
@@ -368,4 +231,3 @@
         start();
     }
 })();
-
