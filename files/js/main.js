@@ -78,3 +78,8 @@ document.getElementById("exedev").addEventListener("click", () => {
         }, 500);
     }
 });
+
+if (location.search.includes("com")) {
+  document.getElementById("exedev").innerHTML =
+    `exerinity.dev <a href="https://exerinity.com">(back to exerinity.com)</a>`;
+}
