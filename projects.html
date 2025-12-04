@@ -40,14 +40,17 @@
 
 <body>
     <script src="/files/js/stars.js" defer></script>
-    
+
     <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
-            <small class="site-brand"><a href="/">exerinity.dev</a> / projects</small>
+            <small class="site-brand" id="exedev"><a href="/">exerinity.dev</a> / projects</small>
             <h1>projects</h1>
             <div class="nav-links">
-                <a href="/projects/ex3">ex3</a> <a href="/projects/pigeon">pigeon</a> <a href="/projects/voxity">voxity</a> <a href="/projects/why">why.txt</a> <a href="/projects/redsky">redsky</a> <a href="/projects/spinnin">spinnin' records player</a> <a href="/projects/misc">others</a>
+                <a href="/projects/ex3">ex3</a> <a href="/projects/pigeon">pigeon</a> <a
+                    href="/projects/voxity">voxity</a> <a href="/projects/why">why.txt</a> <a
+                    href="/projects/redsky">redsky</a> <a href="/projects/spinnin">spinnin' records player</a> <a
+                    href="/projects/misc">others</a>
             </div>
         </section>
         <hr>
@@ -56,6 +59,12 @@
             <a href="/"><i class="fa-solid fa-house"></i> home</a>
         </div>
     </main>
+    <script>
+        if (location.search.includes("com")) {
+            document.getElementById("exedev").innerHTML =
+                `<a href="/?com">exerinity.dev</a> / projects <a href="https://exerinity.com">(back to exerinity.com)</a>`;
+        }
+    </script>
 </body>
 
 </html>
