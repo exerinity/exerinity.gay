@@ -7,18 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <meta name="author" content="exerinity">
     <title>exerinity dot dev</title>
-    <link rel="stylesheet" href="/files/css/structure.css">
-    <link rel="stylesheet" href="/files/css/misc.css">
-    <link rel="stylesheet" href="/files/css/interactives.css">
-    <link rel="stylesheet" href="/files/css/discord.load.css">
+    <link rel="preload" href="/files/css/structure.css" as="style">
+    <link rel="stylesheet" href="/files/css/structure.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/misc.css" as="style">
+    <link rel="stylesheet" href="/files/css/misc.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/interactives.css" as="style">
+    <link rel="stylesheet" href="/files/css/interactives.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/discord.load.css" as="style">
+    <link rel="stylesheet" href="/files/css/discord.load.css" media="print" onload="this.media='all'">
     <link rel="canonical" href="https://exerinity.dev">
     <meta name="theme-color" content="#000024">
+    <meta name="description" content="programmer">
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        media="print" onload="this.media='all'">
 
     <!-- twemoji -->
-    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" defer></script>
 
     <!-- og -->
     <meta property="og:title" content="exerinity">
@@ -65,7 +75,8 @@
             </h1>
             <p>Hey! I'm <strong>exerinity</strong> <i>(“ecksa-rinity”)</i>, an Australian <a
                     href="https://en.pronouns.page/@exerinity" target="_blank"><i class="fa-solid fa-mars"
-                        style="color: #216598; cursor: pointer; text-decoration: underline;" title="male (click for more info)"></i></a>
+                        style="color: #216598; cursor: pointer; text-decoration: underline;"
+                        title="male (click for more info)"></i></a>
                 self-taught programmer. I mostly code front end PWAs, but also sometimes Discord bots and other
                 serverside stuff, so basically a full stack developer. I hate that cheesy-ass title. Anyway, I code in
                 JavaScript only. Unconventionally.</p>
@@ -91,8 +102,8 @@
                 <h1>discord <i class="fa-brands fa-discord" style="color: #5865f2"></i></h1>
                 <div class="dc-card">
                     <div class="dc-avatar-wrap">
-                        <img id="dc-avatar" class="dc-avatar">
-                        <img id="dc-avatar-deco" class="dc-avatar-deco hidden">
+                        <img id="dc-avatar" class="dc-avatar" alt="Discord avatar">
+                        <img id="dc-avatar-deco" class="dc-avatar-deco hidden" alt="">
                     </div>
 
                     <div class="dc-ident">
@@ -207,7 +218,8 @@
                     <li>Nov 27 2025, 7:06 pm - updated pretty much every page to use proper hyperlinks
                         for the "exerinity.dev / whatever" title instead of a click listener in js, <a
                             href="/projects/voxity/faq">updated voxity's faq</a></li>
-                    <li class="current">Nov 29 2025, 11:25 am - added a video to <a href="/projects/voxity">voxity's</a> page + changed cdn url from "vienna.exerinity.dev" to "i.exerinity.com"</li>
+                    <li class="current">Nov 29 2025, 11:25 am - added a video to <a href="/projects/voxity">voxity's</a>
+                        page + changed cdn url from "vienna.exerinity.dev" to "i.exerinity.com"</li>
                 </ul>
                 <span>timestamps are in UTC+11.</span>
             </details>
