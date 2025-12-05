@@ -1,5 +1,5 @@
 (() => {
-    const API = 'https://bagel.exerinity.dev/getdata?only=discord';
+    const API = 'https://bagel.exerinity.dev/getdata?only=discord'; // visit this yourself and remove the "only" parameter. it also returns my latest bluesky posts, but i stopped using that app
 
     const $ = (id) => document.getElementById(id);
     const esc = (s = '') => s
@@ -14,9 +14,9 @@
         status: $('status'),
         activity: $('activity'),
         playing: $('playing'),
-    avatar: $('dc-avatar'),
+        avatar: $('dc-avatar'),
         name: $('dc-name'),
-    handle: $('dc-handle'),
+        handle: $('dc-handle'),
     };
 
     const REFRESH_MS = 10000;
