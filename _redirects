@@ -15,9 +15,12 @@
 /audion /projects/voxity
 /projects/audion /projects/voxity
 /projects/audion/* /projects/voxity/:splat
+/projects/why /projects/scholia
+/projects/why/* /projects/scholia/:splat
+/why /projects/scholia
 /i/* /:splat
 /lastfm https://www.last.fm/user/exerinity
-/projects/notepad /projects/why
+/projects/notepad /projects/scholia
 /i/twemoji /twemoji
 /to/ex3 https://ex3.icu
 /to/pigeon https://pigeon.exerinity.com
