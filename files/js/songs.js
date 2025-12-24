@@ -1,5 +1,6 @@
 (function () {
-    const SRC = '/data/songs/spotify.json';
+    //const SRC = '/data/songs/spotify.json';
+    const SRC = '/data/songs/tidal.json';
     const box = document.getElementById('spotify-embed');
     const btn = document.getElementById('song-shuffle');
     const ano = document.getElementById('anotherone');
@@ -28,7 +29,8 @@
         wrap.className = 'spotify-embed-wrapper';
 
         const frame = document.createElement('iframe');
-        frame.src = `https://open.spotify.com/embed/track/${encodeURIComponent(id)}?utm_source=generator`;
+        //frame.src = `https://open.spotify.com/embed/track/${encodeURIComponent(id)}?utm_source=generator`;
+        frame.src = `https://embed.tidal.com/tracks/${encodeURIComponent(id)}`;
         frame.width = '100%';
         frame.height = '152';
         frame.style.border = 'none';

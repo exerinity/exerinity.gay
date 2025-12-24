@@ -45,7 +45,6 @@ function welcome() {
         { text: "welkom bij exerinity.dev", lang: "Afrikaans" },
         { text: "καλώς ήρθατε στο exerinity.dev", lang: "Greek" },
         { text: "haii!!! :33 haiii ^_^ hewwo!!1!1! >////<", lang: null },
-        { text: ".... . .-.. .-.. ---", lang: "Morse code"},
         { text: "console.log('Hello World!');", lang: "JavaScript"}
     ];
 
@@ -53,7 +52,7 @@ function welcome() {
     let el = document.getElementById("welcome");
 
     el.innerText = chosen.text.toLocaleLowerCase() + " 👋";
-    if (el.lang) el.title = `this is welcome in ${chosen.lang}`;
+    if (chosen.lang) el.title = `this is welcome in ${chosen.lang}`;
     twittermoji();
 }
 
