@@ -60,7 +60,7 @@
     } catch { return false; }
   }
 
-  const h24 = is24();
+  const userPrefers24 = is24();
 
   function go() {
     const n = new Date();
@@ -75,12 +75,23 @@
     );
 
     const loc = n;
-
     const u10 = tz(n, 660);
 
-    elU.innerHTML = fmt(u, h24);
-    elL.innerHTML = fmt(loc, h24);
-    elU10.innerHTML = fmt(u10, h24);
+    elU.innerHTML = fmt(u, userPrefers24);
+    elL.innerHTML = fmt(loc, userPrefers24);
+
+    if (
+      loc.getFullYear() === u10.getFullYear() &&
+      loc.getMonth() === u10.getMonth() &&
+      loc.getDate() === u10.getDate() &&
+      loc.getHours() === u10.getHours() &&
+      loc.getMinutes() === u10.getMinutes() &&
+      loc.getSeconds() === u10.getSeconds()
+    ) {
+      elU10.innerHTML = 'same time as you!';
+    } else {
+      elU10.innerHTML = fmt(u10, userPrefers24);
+    }
   }
 
   go();

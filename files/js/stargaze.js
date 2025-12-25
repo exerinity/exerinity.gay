@@ -8,7 +8,7 @@
             timer = null;
             if (confirm('Stop stargazing?')) {
                 document.getElementById('bgstars').remove();
-                setTimeout(() => { window.location.assign('/'); }, 200);
+                setTimeout(() => { window.location.assign('/'); }, 500);
             }
         }, 400);
     }
@@ -30,7 +30,7 @@
         if (e.button !== undefined && e.button !== 0) return;
         if (confirm('Stop stargazing?')) {
             document.getElementById('bgstars').remove();
-            setTimeout(() => { window.location.assign('/'); }, 200);
+            setTimeout(() => { window.location.assign('/'); }, 500);
         }
     }, { passive: true });
 })();

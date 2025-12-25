@@ -40,23 +40,26 @@
 
 <body>
     <script src="/files/js/stars.js" defer></script>
-    
+
     <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
             <small class="site-brand"><a href="/">exerinity.dev</a> / ?</small>
-        </section>
+        
         <h1>404</h1>
-        <p>See all those stars behind the page? That's probably where the page you were looking for went.</p>
+        <p id="p">
+            That resource did not match any documents.
+        </p></section>
         <div class="nav-links">
             <a href="/"><i class="fa-solid fa-house"></i> go home</a>
             <a id="try" href="null"><i class="fa-solid fa-earth-americas"></i> try on exerinity.com</a>
-            <a href="https://exerinity.com"><i class="fa-solid fa-globe"></i> exerinity.com</a>
+            <a href="https://exerinity.com"><i class="fa-solid fa-globe"></i> go to exerinity.com</a>
+            <a href="https://twitter.com/messages/compose?recipient_id=1988378945625223168"><i class="fa-solid fa-brands fa-twitter"></i> cry about it</a>
         </div>
     </main>
     <script>
         document.getElementById('try').href = 'https://exerinity.com' + window.location.pathname + window.location.search;
-        document.getElementById('exedev').addEventListener('click', () => {window.location.href = '/';});
+        document.getElementById("p").innerHTML = `The resource - <strong>"${window.location.pathname.replaceAll("/", "")}"</strong> - did not match any documents.`;
     </script>
 </body>
 
