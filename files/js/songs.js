@@ -1,3 +1,5 @@
+// Fuck Spotify. The embed is horribly massive and garbage and tanks my Lighthouse score. Keeping it here but commented out in case something breaks
+
 (function () {
     //const SRC = '/data/songs/spotify.json';
     const SRC = '/data/songs/tidal.json';
