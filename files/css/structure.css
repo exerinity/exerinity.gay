@@ -265,7 +265,7 @@ ul {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     box-sizing: border-box;
     border: 2px solid rgba(255, 255, 255, 0.2);
     will-change: transform;
@@ -277,6 +277,20 @@ ul {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50%;
+}
+
+.presence .dc-avatar-deco {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) scale(var(--deco-scale, 1));
+    transform-origin: center center;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .presence .dc-ident {

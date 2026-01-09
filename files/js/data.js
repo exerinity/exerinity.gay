@@ -1,5 +1,6 @@
 (() => {
-    const API = 'https://bagel.exerinity.dev/getdata?only=discord'; // visit this yourself and remove the "only" parameter. it also returns my latest bluesky posts, but i stopped using that app
+    const API = 'https://api.lanyard.rest/v1/users/972907501127344179'
+    //const API = 'https://bagel.exerinity.dev/getdata?only=discord'; // visit this yourself and remove the "only" parameter. it also returns my latest bluesky posts, but i stopped using that app
 
     const $ = (id) => document.getElementById(id);
     const esc = (s = '') => s
@@ -15,6 +16,7 @@
         activity: $('activity'),
         playing: $('playing'),
         avatar: $('dc-avatar'),
+        deco: $('dc-avatar-deco'),
         name: $('dc-name'),
         handle: $('dc-handle'),
     };
@@ -31,16 +33,23 @@
     const tuneAvatarOverlay = () => {
         try {
             const av = dizel.avatar;
+            const deco = dizel.deco;
             if (!av || !deco) return;
             const wrap = av.parentElement;
             if (!wrap) return;
             const rect = wrap.getBoundingClientRect();
             const w = Math.round(rect.width);
             const h = Math.round(rect.height);
+            const scale = 1.05;
             wrap.style.width = w + 'px';
             wrap.style.height = h + 'px';
             av.style.width = w + 'px';
             av.style.height = h + 'px';
+            deco.style.width = w + 'px';
+            deco.style.height = h + 'px';
+            deco.style.left = '50%';
+            deco.style.top = '50%';
+            deco.style.setProperty('--deco-scale', scale);
         } catch { }
     };
 
@@ -54,6 +63,8 @@
             const secs = Math.max(0, Math.ceil(msLeft / 1000));
             display = `${basel}${secs > 0 ? ` · ${secs}` : ' · <div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>'}`;
         }
+
+        
 
         if (display !== lastRendered) {
             dizel.status.innerHTML = display;
@@ -133,6 +144,18 @@
         if (dizel.name) dizel.name.innerHTML = name || '<div class="spinner" style="width:1em;height:1em;display:inline-block;vertical-align:middle;"></div>';
         if (dizel.handle) dizel.handle.innerHTML = handle;
         if (dizel.avatar && av) dizel.avatar.src = av;
+        try {
+            const decoData = u.avatar_decoration_data;
+            if (dizel.deco) {
+                if (decoData && decoData.asset) {
+                    const decoUrl = `https://cdn.discordapp.com/avatar-decoration-presets/${decoData.asset}.png?size=4096&passthrough=true`;
+                    if (dizel.deco.src !== decoUrl) dizel.deco.src = decoUrl;
+                    sh(dizel.deco, false);
+                } else {
+                    sh(dizel.deco, true);
+                }
+            }
+        } catch {}
         if (dizel.avatar) {
             if (dizel.avatar.complete) requestAnimationFrame(tuneAvatarOverlay);
             else dizel.avatar.addEventListener('load', () => requestAnimationFrame(tuneAvatarOverlay), { once: true });
@@ -196,8 +219,13 @@
             const res = await fetch(API, { cache: 'no-store' });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const json = await res.json();
-
-            if (json.discord) uds(json.discord);
+            let dcBlock = null;
+            if (json && json.discord && json.discord.data) {
+                dcBlock = json.discord;
+            } else if (json && json.data) {
+                dcBlock = { data: json.data, success: json.success };
+            }
+            if (dcBlock) uds(dcBlock);
         } catch (err) {
             console.error(err);
         } finally {
