@@ -34,3 +34,8 @@ nav a:hover {
 #projects a:active {
     transform: translateY(1px);
 }
+
+.random-song .platform-toggle[data-platform="spotify"] > :nth-child(1) { display: inline-block;cursor:pointer; }
+.random-song .platform-toggle[data-platform="spotify"] > :nth-child(2) { display: none; }
+.random-song .platform-toggle[data-platform="tidal"] > :nth-child(1) { display: none; }
+.random-song .platform-toggle[data-platform="tidal"] > :nth-child(2) { display: inline-block;cursor:pointer; }
