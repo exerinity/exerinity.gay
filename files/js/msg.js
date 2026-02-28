@@ -39,7 +39,7 @@ async function msg(text, options = {}) {
     title.style.alignItems = 'center';
     title.style.height = '24px';
     title.style.userSelect = 'none';
-    title.innerHTML = `${options.titlebarText || 'exerinity.dev'}`;
+    title.innerHTML = `${options.titlebarText || 'exerinity.gay'}`;
 
     const close = document.createElement('button');
     close.innerHTML = '<i class="fa-solid fa-xmark"></i>';
