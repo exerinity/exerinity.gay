@@ -67,7 +67,14 @@ function create() {
     }
     const speed = Math.random() * 2 + 1;
     const length = Math.random() * 40 + 40;
-    meteors.push({ x: startX, y: startY, angle, speed, length, alpha: 1 });
+    const neonPalette = [
+        { r: 255, g: 255, b: 255 }, // neon white
+        { r: 57,  g: 255, b: 20  }, // neon green
+        { r: 0,   g: 255, b: 255 }, // neon cyan
+        { r: 0,   g: 200, b: 255 }  // neon blue
+    ];
+    const color = neonPalette[Math.floor(Math.random() * neonPalette.length)];
+    meteors.push({ x: startX, y: startY, angle, speed, length, alpha: 1, color });
 }
 
 let inter = null;
@@ -96,16 +103,17 @@ function met() {
         const tailX = s.x - s.length * Math.cos(s.angle);
         const tailY = s.y - s.length * Math.sin(s.angle);
         ctx.lineTo(tailX, tailY);
+        const c = s.color || { r: 255, g: 255, b: 255 };
         let gradient = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${s.alpha})`);
-        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+        gradient.addColorStop(0, `rgba(${c.r}, ${c.g}, ${c.b}, ${s.alpha})`);
+        gradient.addColorStop(1, `rgba(${c.r}, ${c.g}, ${c.b}, 0)`);
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 2;
         ctx.stroke();
 
         ctx.beginPath();
         ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`;
+        ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${s.alpha})`;
         ctx.fill();
 
         s.x += s.speed * Math.cos(s.angle);
@@ -129,39 +137,75 @@ function shoot(count = 10) {
 window.shoot = shoot;
 
 let rafId = null;
+let timeoutId = null;
+let lastTimestamp = 0;
+let targetFPS = 60;
 
-function pause() {
+function renderFrame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    draw();
+    met();
+}
+
+function stopSchedulers() {
     if (rafId !== null) {
         cancelAnimationFrame(rafId);
         rafId = null;
     }
+    if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+    }
+}
+
+function rafLoop(ts) {
+    const frameDuration = 1000 / targetFPS;
+    if (!lastTimestamp) lastTimestamp = ts;
+    const delta = ts - lastTimestamp;
+    if (delta >= frameDuration) {
+        lastTimestamp = ts - (delta % frameDuration);
+        renderFrame();
+    }
+    rafId = requestAnimationFrame(rafLoop);
+}
+
+function timeoutLoop() {
+    renderFrame();
+    const frameDuration = 1000 / targetFPS;
+    timeoutId = setTimeout(timeoutLoop, frameDuration);
+}
+
+function startLoopForTargetFPS() {
+    stopSchedulers();
+    lastTimestamp = 0;
+    const useRAF = targetFPS >= 30;
+    if (useRAF) {
+        rafId = requestAnimationFrame(rafLoop);
+    } else {
+        timeoutId = setTimeout(timeoutLoop, 1000 / targetFPS);
+    }
+}
+
+startLoopForTargetFPS();
+
+function setFocused() {
+    targetFPS = 60;
+    startLoopForTargetFPS();
+    if (inter === null) cron();
+}
+function setUnfocused() {
+    targetFPS = 0.7;
+    startLoopForTargetFPS();
     cls();
 }
-function resume() {
-    if (rafId === null) {
-        rafId = requestAnimationFrame(loop);
-    }
-    if (inter === null) {
-        cron();
-    }
-}
-
-function loop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    draw();
-    met();
-    rafId = requestAnimationFrame(loop);
-}
-
-loop();
 
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
-        pause();
+        setUnfocused();
     } else {
-        resume();
+        setFocused();
     }
 });
 
-window.addEventListener('blur', pause);
-window.addEventListener('focus', resume);
+window.addEventListener('blur', setUnfocused);
+window.addEventListener('focus', setFocused);
