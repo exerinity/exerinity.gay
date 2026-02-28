@@ -1,16 +1,41 @@
-// Fuck Spotify. The embed is horribly massive and garbage and tanks my Lighthouse score. Keeping it here but commented out in case something breaks
-
 (function () {
-    //const SRC = '/data/songs/spotify.json';
-    const SRC = '/data/songs/tidal.json';
     const box = document.getElementById('spotify-embed');
     const btn = document.getElementById('song-shuffle');
     const ano = document.getElementById('anotherone');
+    const toggle = document.getElementById('platform-toggle');
 
     if (!box) return;
 
+    const PLATFORMS = {
+        spotify: {
+            name: 'Spotify',
+            icon: 'fa-brands fa-spotify',
+            src: '/data/songs/spotify.json',
+            embed: id => `https://open.spotify.com/embed/track/${encodeURIComponent(id)}?utm_source=generator`,
+            height: '152'
+        },
+        tidal: {
+            name: 'TIDAL',
+            icon: 'fa-brands fa-tidal',
+            src: '/data/songs/tidal.json',
+            embed: id => `https://embed.tidal.com/tracks/${encodeURIComponent(id)}`,
+            height: '180'
+        }
+    };
+
+    let platform = (localStorage.getItem('songPlatform') || 'spotify');
+    if (!(platform in PLATFORMS)) platform = 'spotify';
+
     let xs = [];
     let last = null;
+
+    function applyToggleUI() {
+        if (!toggle) return;
+        const p = PLATFORMS[platform];
+        toggle.title = p.name;
+        toggle.setAttribute('aria-label', `Toggle music platform (currently ${p.name})`);
+        toggle.setAttribute('data-platform', platform);
+    }
 
     function pick() {
         if (!xs.length) return null;
@@ -31,13 +56,14 @@
         wrap.className = 'spotify-embed-wrapper';
 
         const frame = document.createElement('iframe');
-        //frame.src = `https://open.spotify.com/embed/track/${encodeURIComponent(id)}?utm_source=generator`;
-        frame.src = `https://embed.tidal.com/tracks/${encodeURIComponent(id)}`;
+        const p = PLATFORMS[platform];
+        frame.src = p.embed(id);
         frame.width = '100%';
-        frame.height = '152';
+        frame.height = p.height;
         frame.style.border = 'none';
         frame.style.borderRadius = '12px';
         frame.loading = 'lazy';
+        frame.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media;');
 
         wrap.appendChild(frame);
 
@@ -54,23 +80,49 @@
         ano.play();
     }
 
+    function loadSongs() {
+        const p = PLATFORMS[platform];
+        box.innerHTML = '<div class="spinner"></div>';
+        return fetch(p.src, { cache: 'no-store' })
+            .then(r => {
+                if (!r.ok) throw new Error(r.status);
+                return r.json();
+            })
+            .then(list => {
+                if (!Array.isArray(list)) throw new Error('Invalid songs JSON');
+                xs = list.filter(Boolean);
+                go();
+            })
+            .catch(err => {
+                console.error(err);
+                box.innerHTML = '<p style="opacity:.8">nothing!</p>';
+            });
+    }
+
     if (btn) {
         btn.addEventListener('click', go);
         btn.addEventListener('click', another);
     }
 
-    fetch(SRC, { cache: 'no-store' })
-        .then(r => {
-            if (!r.ok) throw new Error(r.status);
-            return r.json();
-        })
-        .then(list => {
-            if (!Array.isArray(list)) throw new Error('Invalid songs JSON');
-            xs = list.filter(Boolean);
-            go();
-        })
-        .catch(err => {
-            console.error(err);
-            box.innerHTML = '<p style="opacity:.8">nothing!</p>';
+    function togglePlatform() {
+        platform = platform === 'spotify' ? 'tidal' : 'spotify';
+        localStorage.setItem('songPlatform', platform);
+        applyToggleUI();
+        xs = [];
+        last = null;
+        loadSongs();
+    }
+
+    if (toggle) {
+        toggle.addEventListener('click', togglePlatform);
+        toggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                togglePlatform();
+            }
         });
+    }
+
+    applyToggleUI();
+    loadSongs();
 })();
