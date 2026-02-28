@@ -27,7 +27,7 @@ function draw() {
     for (let star of stars) {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.fillStyle = `rgba(128, 0, 255, ${star.alpha})`;
         ctx.fill();
 
         star.alpha += (Math.random() - 0.5) * 0.05;
