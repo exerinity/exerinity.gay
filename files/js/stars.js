@@ -213,6 +213,9 @@ window.addEventListener('focus', setFocused);
 // Completely unrelated to stars, but this is for domains: find site-brand, find examples of "exerinity.gay" (the old domain), and make it window.location.hostname
 document.querySelectorAll(".site-brand").forEach(el => {
     el.innerHTML = el.innerHTML.replace(/exerinity.gay/g, window.location.hostname);
+
+    // and for the title
+    document.title = document.title.replace(/exerinity.gay/g, window.location.hostname);
 });
 
 // (because im changing domains up and dont wanna fuck everything up)
