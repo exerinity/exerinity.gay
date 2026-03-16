@@ -39,7 +39,8 @@
 /go/discord https://discord.com/users/972907501127344179
 /go/twitch https://www.twitch.tv/whmnst
 /go/discord https://discord.com/users/972907501127344179
-/oldrelnotes /i/release_notes
+/oldrelnotes /release_notes
+/i/release_notes /release_notes
 /README.md https://github.com/exerinity/exerinity.dev/blob/main/README.md
 /LICENSE https://github.com/exerinity/exerinity.dev/blob/main/LICENSE
 /_redirects https://github.com/exerinity/exerinity.dev/blob/main/_redirects
