@@ -60,5 +60,5 @@ document.getElementById("exe").addEventListener("click", () => {
 
 if (location.search.includes("com")) {
     document.getElementById("exe").innerHTML =
-        `"+window.location.hostname <a href="https://exerinity.com">(back to exerinity.com)</a>`;
+        `"+window.location.hostname <a href="https://ex3.lol">(back to ex3.lol)</a>`;
 }
