@@ -8,10 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="author" content="exerinity">
     <title>voxity / projects / exerinity.com</title>
-    <link rel="stylesheet" href="/files/css/structure.css">
-    <link rel="stylesheet" href="/files/css/misc.css">
-    <link rel="stylesheet" href="/files/css/interactives.css">
-    <link rel="canonical" href="https://exerinity.com">
+    <link rel="preload" href="/files/css/structure.css" as="style">
+    <link rel="stylesheet" href="/files/css/structure.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/misc.css" as="style">
+    <link rel="stylesheet" href="/files/css/misc.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/interactives.css" as="style">
+    <link rel="stylesheet" href="/files/css/interactives.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/discord.load.css" as="style">
+    <link rel="stylesheet" href="/files/css/discord.load.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="/files/css/structure.css">
+        <link rel="stylesheet" href="/files/css/misc.css">
+        <link rel="stylesheet" href="/files/css/interactives.css">
+        <link rel="stylesheet" href="/files/css/discord.load.css">
+        <style>
+            body {
+                background-image: url('https://meow.exerinity.gay/among-us-happy-meal.gif');
+                /* LMFAO */
+                background-size: 100% 100%;
+            }
+        </style>
+    </noscript>
     <meta name="theme-color" content="#4a29c2">
 
     <!-- font awesome -->
@@ -36,16 +57,19 @@
 </head>
 
 <body>
-    <script src="/files/js/stars.js" defer></script>    <script src="/files/js/msg.js" defer></script>
+    <script src="/files/js/stars.js" defer></script>
+    <script src="/files/js/msg.js" defer></script>
     <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
             <small class="site-brand"><a href="/">exerinity.com</a> / <a href="/projects">projects</a> / voxity</small>
             <h1>voxity</h1>
             <small>status: FINISHED/ONGOING<br>inception: July 2025</small>
-            <p><strong><abbr title="Vox (from Latin), and ity (from the end of my username, exerin*ity*)">Voxity</abbr></strong> (<a
-                    href="https://bsky.app/profile/exerinity.dev/post/3m2yswjoaes2l" target="_blank">prev.
-                    <strong>Audion</strong> and <strong>Music player</strong></a>) is a <abbr title="Progressive Web App">PWA</abbr> local music file
+            <p><strong><abbr
+                        title="Vox (from Latin), and ity (from the end of my username, exerin*ity*)">Voxity</abbr></strong>
+                (<a href="https://bsky.app/profile/exerinity.dev/post/3m2yswjoaes2l" target="_blank">prev.
+                    <strong>Audion</strong> and <strong>Music player</strong></a>) is a <abbr
+                    title="Progressive Web App">PWA</abbr> local music file
                 player. Its premise is simple: select your file... and... that's it. It has a few cool things, like
                 timed lyrics, visualizers, metadata handling, themes, and a lot of clickable things. What you see is
                 pretty simple, but
@@ -60,7 +84,8 @@
                 <li>Local file playback only</li>
                 <li>Supports any format your browser does (however, not every format has metadata support)</li>
                 <li>Metadata parsing courtesy of jsmediatags</li>
-                <li>Timed lyrics either by automatic lookup via LRCLIB/Musixmatch or drag-and-drop your own lyic/subtitle files</li>
+                <li>Timed lyrics either by automatic lookup via LRCLIB/Musixmatch or drag-and-drop your own
+                    lyic/subtitle files</li>
                 <li>SubRip and WebVTT parsing</li>
                 <li>Real-time visualizers</li>
                 <li>Queue system with shuffle</li>
@@ -90,11 +115,13 @@
                 <a href="https://voxity.dev" target="_blank" rel="noopener">check it out!</a>
             </div>
             <div class="nav-links">
-                <a style="cursor: pointer;" onclick="msg(`<iframe src='https://voxity.dev/i/release_notes' style='width:100%; height:400px; border:none; border-radius:8px;'></iframe>`); return false;">release
+                <a style="cursor: pointer;"
+                    onclick="msg(`<iframe src='https://voxity.dev/i/release_notes' style='width:100%; height:400px; border:none; border-radius:8px;'></iframe>`); return false;">release
                     notes</a>
                 <a href="/projects/voxity/faq" target="_blank" rel="noopener">faq</a>
                 <a href="/projects/voxity/screenshots" target="_blank" rel="noopener">more screenshots</a>
-                <a href="https://github.com/exerinity/voxity.electron/releases/latest" target="_blank" rel="noopener">download</a>
+                <a href="https://github.com/exerinity/voxity.electron/releases/latest" target="_blank"
+                    rel="noopener">download</a>
             </div>
         </section>
         <hr>
