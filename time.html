@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="author" content="exerinity">
+    <title>time / exerinity.com</title>
+    <link rel="stylesheet" href="/files/css/structure.css">
+    <link rel="stylesheet" href="/files/css/misc.css">
+    <link rel="stylesheet" href="/files/css/interactives.css">
+    <link rel="canonical" href="https://exerinity.com">
+    <meta name="theme-color" content="#4a29c2">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- og -->
+    <meta property="og:title" content="exerinity">
+    <meta property="og:description" content="time for you and me and the world and everything">
+    <meta property="og:image" content="https://i.exerinity.com/av.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exerinity.com">
+    <meta property="og:site_name" content="exerinity.com">
+
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://i.exerinity.com" crossorigin>
+    <link rel="preconnect" href="https://api.lanyard.rest" crossorigin>
+
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="https://i.exerinity.com/av.png">
+    <link rel="apple-touch-icon" href="https://i.exerinity.com/av.png">
+</head>
+
+<body>
+    <script src="/files/js/stars.js" defer></script>
+    <script src="/files/js/clock.js" defer></script>
+    <canvas id="bgstars"></canvas>
+    <main>
+        <small class="site-brand"><a href="/">exerinity.com</a> / time</small>
+        <h1>time for... <i style="cursor: pointer" class="fa-solid fa-clock"
+                id="clicktochangethefuckingtimefrom12to24cunt"></i></h1>
+        <div id="clocks">
+            <div class="clock-item" title="UTC, GMT 0">
+                <i class="fa-solid fa-globe"></i> UTC
+                <span id="clock-utc" aria-live="polite">
+                    <div class="spinner"></div>
+                </span>
+            </div>
+            <div class="clock-item" title="Your device">
+                <i class="fa-solid fa-user-clock"></i> you
+                <span id="clock-local" aria-live="polite">
+                    <div class="spinner"></div>
+                </span>
+            </div>
+            <div class="clock-item" title="My time, UTC+11, or AEDT">
+                <i class="fa-solid fa-crown"></i> me (UTC+11 / Melbourne)
+                <span id="clock-utc10" aria-live="polite">
+                    <div class="spinner"></div>
+                </span>
+            </div>
+        </div>
+        <p>
+            tip: click the clock icon to switch between 12 and 24 hour time
+        </p>
+        <div class="nav-links">
+            <a href="/"><i class="fa-solid fa-house"></i> go home</a>
+            <a style="display:none" id="haha" href="/#time"><i class="fa-solid fa-clock"></i> go back to where you (probably) came from</a>
+            <a href="https://ex3.lol"><i class="fa-solid fa-earth-americas"></i> ex3.lol</a>
+        </div>
+    </main>
+    <script>
+        if (new URLSearchParams(window.location.search).has('t')) {
+            document.getElementById('haha').style.display = 'inline-block';
+        }
+    </script>
+</body>
+
+</html>
