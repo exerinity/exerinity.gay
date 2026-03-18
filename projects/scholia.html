@@ -8,9 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="author" content="exerinity">
     <title>scholia / projects / exerinity.com</title>
-    <link rel="stylesheet" href="/files/css/structure.css">
-    <link rel="stylesheet" href="/files/css/misc.css">
-    <link rel="stylesheet" href="/files/css/interactives.css">
+    <link rel="preload" href="/files/css/structure.css" as="style">
+    <link rel="stylesheet" href="/files/css/structure.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/misc.css" as="style">
+    <link rel="stylesheet" href="/files/css/misc.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/interactives.css" as="style">
+    <link rel="stylesheet" href="/files/css/interactives.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/discord.load.css" as="style">
+    <link rel="stylesheet" href="/files/css/discord.load.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="/files/css/structure.css">
+        <link rel="stylesheet" href="/files/css/misc.css">
+        <link rel="stylesheet" href="/files/css/interactives.css">
+        <link rel="stylesheet" href="/files/css/discord.load.css">
+        <style>
+            body {
+                background-image: url('https://meow.exerinity.gay/among-us-happy-meal.gif');
+                /* LMFAO */
+                background-size: 100% 100%;
+            }
+        </style>
+    </noscript>
     <link rel="canonical" href="https://exerinity.com/projects/notepad">
     <meta name="theme-color" content="#4a29c2">
 
@@ -36,13 +58,14 @@
 </head>
 
 <body>
-    <script src="/files/js/stars.js" defer></script>    <canvas id="bgstars"></canvas>
+    <script src="/files/js/stars.js" defer></script> <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
             <small class="site-brand"><a href="/">exerinity.com</a> / <a href="/projects">projects</a> / scholia</small>
             <h1>scholia</h1>
             <small>status: ACTIVE<br>inception: November 2025</small>
-            <p><strong>scholia</strong> (prev. <strong>why.txt</strong>) is a simple PWA notepad with formatting support, autosave, offline persistence,
+            <p><strong>scholia</strong> (prev. <strong>why.txt</strong>) is a simple PWA notepad with formatting
+                support, autosave, offline persistence,
                 and some other stuff. It is probably my first app with direct mobile friendliness, lmfao.</p>
             <h2>Desktop view:</h2>
             <img src="https://i.exerinity.com/notepad.png" style="max-width:100%;height:auto;">
@@ -69,7 +92,8 @@
                 <a href="https://github.com/exerinity/why" target="_blank" rel="noopener">view source</a>
             </div>
             <h2>why?</h2>
-            <p>I somehow deleted the system notepad app on my phone and couldn't figure out how to turn it back on. Story of my life, basically.</p>
+            <p>I somehow deleted the system notepad app on my phone and couldn't figure out how to turn it back on.
+                Story of my life, basically.</p>
         </section>
         <hr>
         <div class="nav-links">
