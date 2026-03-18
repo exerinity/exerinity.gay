@@ -8,10 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="author" content="exerinity">
     <title>faq / voxity / projects / exerinity.com</title>
-    <link rel="stylesheet" href="/files/css/structure.css">
-    <link rel="stylesheet" href="/files/css/misc.css">
-    <link rel="stylesheet" href="/files/css/interactives.css">
-    <link rel="canonical" href="https://exerinity.com">
+    <link rel="preload" href="/files/css/structure.css" as="style">
+    <link rel="stylesheet" href="/files/css/structure.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/misc.css" as="style">
+    <link rel="stylesheet" href="/files/css/misc.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/interactives.css" as="style">
+    <link rel="stylesheet" href="/files/css/interactives.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/discord.load.css" as="style">
+    <link rel="stylesheet" href="/files/css/discord.load.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="/files/css/structure.css">
+        <link rel="stylesheet" href="/files/css/misc.css">
+        <link rel="stylesheet" href="/files/css/interactives.css">
+        <link rel="stylesheet" href="/files/css/discord.load.css">
+        <style>
+            body {
+                background-image: url('https://meow.exerinity.gay/among-us-happy-meal.gif');
+                /* LMFAO */
+                background-size: 100% 100%;
+            }
+        </style>
+    </noscript>
     <meta name="theme-color" content="#4a29c2">
 
     <!-- font awesome -->
@@ -117,7 +138,8 @@
             </p>
             <h2>Is it open source?</h2>
             <p>
-                Yes. Inspect element. Or <a href="https://github.com/exerinity/voxity" target="_blank" rel="noopener">github.com/exerinity/voxity</a>.
+                Yes. Inspect element. Or <a href="https://github.com/exerinity/voxity" target="_blank"
+                    rel="noopener">github.com/exerinity/voxity</a>.
             </p>
             <h2>
                 Can you jump to a specific time or playback speed or volume?
@@ -143,7 +165,10 @@
                 What browser works best?
             </h2>
             <p>
-                <a href="https://vivaldi.com" target="_blank">Vivaldi</a> or <a href="https://helium.computer" target="_blank" rel="noopener">Helium</a>. <a href="https://voxity.dev/i/how_pwa" target="_blank">As an installed PWA</a>. <a href="https://google.com/chrome" target="_blank">Chrome</a> and <a href="https://firefox.com" target="_blank">Firefox</a> also work well, but the first two feel best.
+                <a href="https://vivaldi.com" target="_blank">Vivaldi</a> or <a href="https://helium.computer"
+                    target="_blank" rel="noopener">Helium</a>. <a href="https://voxity.dev/i/how_pwa" target="_blank">As
+                    an installed PWA</a>. <a href="https://google.com/chrome" target="_blank">Chrome</a> and <a
+                    href="https://firefox.com" target="_blank">Firefox</a> also work well, but the first two feel best.
             </p>
             <h2>
                 What can you click and what does it do?
