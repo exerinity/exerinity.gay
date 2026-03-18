@@ -8,9 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="author" content="exerinity">
     <title>redsky / projects / exerinity.com</title>
-    <link rel="stylesheet" href="/files/css/structure.css">
-    <link rel="stylesheet" href="/files/css/misc.css">
-    <link rel="stylesheet" href="/files/css/interactives.css">
+    <link rel="preload" href="/files/css/structure.css" as="style">
+    <link rel="stylesheet" href="/files/css/structure.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/misc.css" as="style">
+    <link rel="stylesheet" href="/files/css/misc.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/interactives.css" as="style">
+    <link rel="stylesheet" href="/files/css/interactives.css" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="/files/css/discord.load.css" as="style">
+    <link rel="stylesheet" href="/files/css/discord.load.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="/files/css/structure.css">
+        <link rel="stylesheet" href="/files/css/misc.css">
+        <link rel="stylesheet" href="/files/css/interactives.css">
+        <link rel="stylesheet" href="/files/css/discord.load.css">
+        <style>
+            body {
+                background-image: url('https://meow.exerinity.gay/among-us-happy-meal.gif');
+                /* LMFAO */
+                background-size: 100% 100%;
+            }
+        </style>
+    </noscript>
     <link rel="canonical" href="https://exerinity.com/projects/redsky">
     <meta name="theme-color" content="#4a29c2">
 
@@ -36,7 +58,7 @@
 </head>
 
 <body>
-    <script src="/files/js/stars.js" defer></script>    <canvas id="bgstars"></canvas>
+    <script src="/files/js/stars.js" defer></script> <canvas id="bgstars"></canvas>
     <main>
         <section id="about">
             <small class="site-brand"><a href="/">exerinity.com</a> / <a href="/projects">projects</a> / redsky</small>
@@ -69,11 +91,13 @@
             </p>
             <h2>reboot</h2>
             <p>
-                On October 16 I turned it back on with heavy rate limiting and bot detection in place. No idea if I can call it "active" again. Read more at <a href="https://exerinity.com/blog/redsky2">this post</a>.
+                On October 16 I turned it back on with heavy rate limiting and bot detection in place. No idea if I can
+                call it "active" again. Read more at <a href="https://exerinity.com/blog/redsky2">this post</a>.
             </p>
             <h2>second shutdown</h2>
             <p>
-                On November 2 after my attempts to curb abuse failed, I decided to pull the plug again; permanently this time. Read more at <a href="https://exerinity.com/blog/redsky3">this post</a>.
+                On November 2 after my attempts to curb abuse failed, I decided to pull the plug again; permanently this
+                time. Read more at <a href="https://exerinity.com/blog/redsky3">this post</a>.
             </p>
         </section>
         <hr>
