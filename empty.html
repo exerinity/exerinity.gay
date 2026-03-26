@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>home / exerinity.gay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000 url('/files/img/stars.jpg') repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 12px;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        #wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 18px 12px 40px;
+        }
+
+        #header {
+            border: 1px solid #4A29C2;
+            border-bottom: none;
+            background: linear-gradient(180deg, #0d0d1a 0%, #000 100%);
+            padding: 10px 12px 8px;
+            text-align: center;
+        }
+
+        #header h1 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #b39dff;
+            text-shadow: 0 0 8px #4A29C2, 0 0 20px #4A29C2;
+            letter-spacing: 2px;
+            font-family: Verdana, sans-serif;
+        }
+
+        #header .sub {
+            font-size: 10px;
+            color: #7a6bcc;
+            margin-top: 3px;
+            letter-spacing: 1px;
+        }
+
+        #nav {
+            background: #0a0018;
+            border: 1px solid #4A29C2;
+            border-top: 2px solid #7a6bcc;
+            border-bottom: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        #nav a {
+            color: #c8b8ff;
+            text-decoration: none;
+            font-size: 11px;
+            padding: 5px 12px;
+            border-right: 1px solid #2a1a60;
+            display: inline-block;
+        }
+
+        #nav a:last-child {
+            border-right: none;
+        }
+
+        #nav a:hover {
+            background: #4A29C2;
+            color: #fff;
+        }
+
+        #content {
+            border: 1px solid #4A29C2;
+            background: rgba(0, 0, 0, 0.82);
+            padding: 14px 16px;
+        }
+
+        .box {
+            border: 1px solid #2e1a70;
+            background: rgba(10, 0, 30, 0.6);
+            margin-bottom: 14px;
+        }
+
+        .box-title {
+            background: linear-gradient(90deg, #4A29C2, #1a0a50);
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .box-body {
+            padding: 10px 10px;
+            line-height: 1.7;
+            font-size: 12px;
+            color: #ddd;
+        }
+
+        .box-body p {
+            margin-bottom: 8px;
+        }
+
+        .box-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        a,
+        a:visited {
+            color: #a48fff;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        #marquee-bar {
+            background: #0a0018;
+            border: 1px solid #4A29C2;
+            border-top: none;
+            border-bottom: none;
+            padding: 3px 0;
+            overflow: hidden;
+        }
+
+        marquee {
+            color: #7a6bcc;
+            font-size: 11px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #2e1a70;
+            margin: 10px 0;
+        }
+
+        #buttons {
+            border: 1px solid #4A29C2;
+            border-top: none;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 8px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center;
+        }
+
+        #buttons img {
+            width: 88px;
+            height: 31px;
+            image-rendering: pixelated;
+            display: block;
+        }
+
+        #buttons a img,
+        #buttons img {
+            border: 1px solid #2e1a70;
+        }
+
+        #buttons a img:hover {
+            border-color: #4A29C2;
+            outline: 1px solid #7a6bcc;
+        }
+
+        #footer {
+            border: 1px solid #4A29C2;
+            border-top: 1px solid #2e1a70;
+            background: #0a0018;
+            text-align: center;
+            padding: 6px;
+            font-size: 10px;
+            color: #4a3a80;
+        }
+
+        .username {
+            color: #b39dff;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #c8b8ff;
+        }
+
+        .dim {
+            color: #888;
+        }
+
+        details summary {
+            cursor: pointer;
+            color: #a48fff;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        details summary:hover {
+            color: #fff;
+        }
+
+        details ul {
+            margin: 6px 0 0 16px;
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        .middle {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+
+        <div id="header">
+            <div class="sub"></div>
+            <h1>::  ::</h1>
+        </div>
+
+        <div id="nav">
+            <a href="/">home</a>
+            <a href="https://exerinity.com">exerinity.com</a>
+            <a href="https://exerinity.com/projects">projects</a>
+            <a href="https://exerinity.com/voxity">voxity</a>
+            <a href="https://exerinity.com/github">github</a>
+            <a href="https://exerinity.com/twitter">twitter</a>
+        </div>
+
+        <div id="marquee-bar">
+            <marquee scrollamount="1"> </marquee>
+        </div>
+
+        <div id="content">
+            
+        </div>
+
+        <div id="buttons">
+            <img src="https://i.exerinity.com/aimlink.gif" alt="AIM - AOL Instant Messenger"
+                title="AIM - AOL Instant Messenger">
+            <a href="https://mypayindia.com"><img src="https://i.exerinity.com/amazing_free_stuff.gif"
+                    alt="Amazing Free Stuff... with MyPayIndia!" title="Amazing Free Stuff... with MyPayIndia!"></a>
+            <img src="https://i.exerinity.com/amd_now.gif" alt="AMD K6 - Upgrade Now!" title="AMD K6 - Upgrade Now!">
+            <a href="https://twitter.com/exerinity_"><img src="https://i.exerinity.com/cutesocks.gif"
+                    alt="i wear cute socks" title="i wear cute socks"></a>
+            <img src="https://i.exerinity.com/animegay.gif" alt="anime is gay as hell but I approve!"
+                title="anime is gay as hell but I approve!">
+            <img src="https://i.exerinity.com/meoow.gif" alt="meoow" title="meoow">
+            <img src="https://i.exerinity.com/phonechump.gif" alt="Don't be a phone chump - get a computer NOW!"
+                title="Don't be a phone chump - get a computer NOW!">
+            <img src="https://i.exerinity.com/cs.gif" alt="Counter-Strike" title="Counter-Strike">
+            <img src="https://i.exerinity.com/archlinux.gif" alt="Arch Linux" title="Arch Linux">
+            <a href="https://discord.com"><img src="https://i.exerinity.com/discord.gif"
+                    alt="Tired of Skype? Just get Discord (this aged well...)"
+                    title="Tired of Skype? Just get Discord (this aged well...)"></a>
+            <img src="https://i.exerinity.com/meow.gif" alt="meow" title="meow">
+            <img src="https://i.exerinity.com/femboy.gif"
+                alt="if your son wears a skirt get him some cute kneesocks as well."
+                title="if your son wears a skirt get him some cute kneesocks as well.">
+            <a href="https://voxity.dev"><img src="/files/btns/voxity.gif" alt="Voxity - plays music."
+                    title="Voxity - plays music."></a>
+            <a href="https://twitter.com"><img src="https://i.exerinity.com/twitter.gif" alt="Twitter"
+                    title="Twitter"></a>
+            <a href="https://kernel.org"><img src="https://i.exerinity.com/linux.gif" alt="Linux" title="Linux"></a>
+            <img src="/files/btns/piracy.gif" alt="piracy NOW!" title="piracy NOW!">
+            <img src="/files/btns/seedyourtorrents.gif" alt="Sharing is caring... seed your torrents!"
+                title="Sharing is caring... seed your torrents!">
+            <img src="/files/btns/javascript.gif" alt="JavaScript NOW!" title="JavaScript NOW!">
+        </div>
+
+        <div id="footer">
+            go <a href="/">home</a> or to <a href="https://exerinity.com">exerinity.com</a>
+        </div>
+
+    </div>
+</body>
+
+</html>
